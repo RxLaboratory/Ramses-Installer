@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Installer>
     <Name>Ramses</Name>
-    <Version>0.8.8</Version>
+    <Version>0.8.x</Version>
     <Title>Ramses Application Installer</Title>
     <Publisher>RxLaboratory</Publisher>
     <StartMenuDir>Ramses</StartMenuDir>
