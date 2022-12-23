@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>Ramses</Name>
+    <Version>0.8.8</Version>
+    <Title>Ramses Application Installer</Title>
+    <Publisher>RxLaboratory</Publisher>
+    <StartMenuDir>Ramses</StartMenuDir>
+    <ProductUrl>https://rxlaboratory.org/tools/ramses/</ProductUrl>
+    <TargetDir>@ApplicationsDir@/RxLaboratory/Ramses</TargetDir>
+    <RunProgram>@TargetDir@/ramses</RunProgram>
+</Installer>

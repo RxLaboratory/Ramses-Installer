@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>The Ramses Application</DisplayName>
+    <Description>Install the Ramses application.</Description>
+    <Version>0.8.8</Version>
+    <ReleaseDate>2022-12-23</ReleaseDate>
+    <Licenses>
+        <License name="GNU General Public License v3" file="license.md" />
+    </Licenses>
+    <Default>true</Default>
+    <Script>installscript.qs</Script>
+    <UserInterfaces>
+        <UserInterface>registerfilecheckboxform.ui</UserInterface>
+    </UserInterfaces>
+</Package>
