@@ -4,12 +4,14 @@
     <Description>Install the Ramses application.</Description>
     <Version>0.8.8</Version>
     <ReleaseDate>2022-12-23</ReleaseDate>
+    <Default>true</Default>
+    <Required>true</Required>
     <Licenses>
         <License name="GNU General Public License v3" file="license.txt" />
     </Licenses>
     <Default>true</Default>
     <Script>installscript.qs</Script>
     <UserInterfaces>
-        <UserInterface>registerfilecheckboxform.ui</UserInterface>
+        <UserInterface>targetWidget.ui</UserInterface>
     </UserInterfaces>
 </Package>

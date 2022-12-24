@@ -1,71 +1,114 @@
-/****************************************************************************
-**
-** Copyright (C) 2020 The Qt Company Ltd.
-** Contact: https://www.qt.io/licensing/
-**
-** This file is part of the FOO module of the Qt Toolkit.
-**
-** $QT_BEGIN_LICENSE:GPL-EXCEPT$
-** Commercial License Usage
-** Licensees holding valid commercial Qt licenses may use this file in
-** accordance with the commercial license agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and The Qt Company. For licensing terms
-** and conditions see https://www.qt.io/terms-conditions. For further
-** information use the contact form at https://www.qt.io/contact-us.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3 as published by the Free Software
-** Foundation with exceptions as appearing in the file LICENSE.GPL3-EXCEPT
-** included in the packaging of this file. Please review the following
-** information to ensure the GNU General Public License requirements will
-** be met: https://www.gnu.org/licenses/gpl-3.0.html.
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
+var targetDirectoryPage = null;
 
 function Component()
 {
-    //We use the addRegisterFileCheckBox() function to display a check box for registering the generated file type on the last page of the installer. We hide the page when updating and uninstalling:
-    component.loaded.connect(this, addRegisterFileCheckBox);
+    component.loaded.connect(this, this.addTargetDirWidget);
 }
 
-// called as soon as the component was loaded
-addRegisterFileCheckBox = function()
+Component.prototype.addTargetDirWidget = function()
 {
-    // don't show when updating or uninstalling
-    if (installer.isInstaller()) {
-        installer.addWizardPageItem(component, "RegisterFileCheckBoxForm", QInstaller.TargetDirectory);
+    // Hide the target dir to add our own
+    installer.setDefaultPageVisible(QInstaller.TargetDirectory, false);
+    installer.addWizardPage(component, "TargetWidget", QInstaller.TargetDirectory);
+
+    // Setup UI
+    targetDirectoryPage = gui.pageWidgetByObjectName("DynamicTargetWidget");
+    targetDirectoryPage.windowTitle = "Choose Installation Directory";
+    targetDirectoryPage.description.setText("Please select where " + installer.value("Name") + " will be installed:");
+    targetDirectoryPage.targetDirectory.textChanged.connect(this, this.targetDirectoryChanged);
+    targetDirectoryPage.targetDirectory.setText(installer.value("TargetDir"));
+    targetDirectoryPage.targetChooser.released.connect(this, this.targetChooserClicked);
+
+    if (!installer.isInstaller() || systemInfo.productType !== "windows") {
+        targetDirectoryPage.RegisterFileCheckBox.hide();
+    }
+
+    if (systemInfo.productType !== "windows") {
+        targetDirectoryPage.AddStartMenuShortcutCheckBox.hide();
+        targetDirectoryPage.AddDesktopShortcutCheckBox.hide();
+    }
+
+    gui.pageById(QInstaller.LicenseCheck).entered.connect(this, this.licensePageEntered);
+}
+
+Component.prototype.targetChooserClicked = function()
+{
+    var dir = QFileDialog.getExistingDirectory("", targetDirectoryPage.targetDirectory.text);
+    targetDirectoryPage.targetDirectory.setText(dir);
+}
+
+Component.prototype.targetDirectoryChanged = function()
+{
+    var dir = targetDirectoryPage.targetDirectory.text;
+    if (installer.fileExists(dir) && installer.fileExists(dir + "/maintenancetool.exe")) {
+        targetDirectoryPage.warning.setText("<p style=\"color: #a526c4\">" + installer.value("Name") + " is already installed. It will be uninstalled when going to the next page.</p>");
+    }
+    else if (installer.fileExists(dir)) {
+        targetDirectoryPage.warning.setText("<p style=\"color: red\">Warning: Installing in an existing directory. It will be wiped on uninstallation.</p>");
+    }
+    else {
+        targetDirectoryPage.warning.setText("");
+    }
+    installer.setValue("TargetDir", dir);
+}
+
+Component.prototype.licensePageEntered = function()
+{
+    var dir = installer.value("TargetDir");
+    if (installer.fileExists(dir) && installer.fileExists(dir + "/maintenancetool.exe")) {
+        installer.gainAdminRights();
+        installer.execute(dir + "/maintenancetool.exe", ["purge", "-c"]);
     }
 }
 
-// here we are creating the operation chain which will be processed at the real installation part later
+// Here we are creating the operation chain which will be processed at the real installation part later
 Component.prototype.createOperations = function()
-{
+{   
+
     // call default implementation to actually install the registeredfile
     component.createOperations();
 
-    if (component.userInterface("RegisterFileCheckBoxForm")) {
-        var isRegisterFileChecked = component.userInterface("RegisterFileCheckBoxForm").RegisterFileCheckBox.checked;
-    }
-    if (systemInfo.productType === "windows" && isRegisterFileChecked) {
+    if (systemInfo.productType === "windows") {
+        targetDirectoryPage = gui.pageWidgetByObjectName("DynamicTargetWidget");
+        var registerFile = targetDirectoryPage.RegisterFileCheckBox.checked;
+        var createDesktopShortcut = targetDirectoryPage.AddDesktopShortcutCheckBox.checked;
+        var createStartMenuShortcut = targetDirectoryPage.AddStartMenuShortcutCheckBox.checked;
+
         var iconId = 0;
         var ramsesPath = installer.value("TargetDir") + "\\ramses.exe";
-        component.addOperation("RegisterFileType",
+
+        if (registerFile) {
+            console.log("Registering *ramses files.");
+            component.addOperation("RegisterFileType",
                                "ramses",
                                ramsesPath + " '%1'",
                                "Ramses Database",
                                "application/x-sqlite3",
                                ramsesPath + "," + iconId,
                                "ProgId=org.rxlaboratory.ramses");
-        component.addOperation("CreateShortcut",
-                               "@TargetDir@/ramses.exe",
-                               "@StartMenuDir@/Ramses.lnk",
-                               "workingDirectory=@TargetDir@",
-                               "iconPath=@TargetDir@/ramses.exe",
-                               "iconId=0",
-                               "description=Open Ramses");
+        }
+
+        if (createDesktopShortcut) {
+            console.log("Creating desktop shortcut.");
+            component.addOperation("CreateShortcut",
+                                    ramsesPath,
+                                    "@DesktopDir@/Ramses.lnk",
+                                    "workingDirectory=@TargetDir@",
+                                    "iconPath=@TargetDir@/ramses.exe",
+                                    "iconId=0",
+                                    "description=Run Ramses");
+        }
+
+        if (createStartMenuShortcut) {
+            console.log("Creating start menu shortcut.");
+            component.addOperation("CreateShortcut",
+                                    ramsesPath,
+                                    "@StartMenuDir@/Ramses.lnk",
+                                    "workingDirectory=@TargetDir@",
+                                    "iconPath=@TargetDir@/ramses.exe",
+                                    "iconId=0",
+                                    "description=Run Ramses");
+        }
+       
     }
 }

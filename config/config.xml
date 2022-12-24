@@ -16,4 +16,5 @@
     <WizardDefaultHeight>600</WizardDefaultHeight>
     <WizardDefaultWidth>960</WizardDefaultWidth>
     <ControlScript>controlscript.js</ControlScript>
+    <RemoveTargetDir>false</RemoveTargetDir>
 </Installer>

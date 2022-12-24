@@ -1,5 +1,4 @@
-function Controller()
-{
+function Controller() {
     // Hide the components page
-    installer.setDefaultPageVisible(QInstaller.ComponentSelection,0);
+    installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
 }
