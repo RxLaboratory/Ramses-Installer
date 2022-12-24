@@ -2,10 +2,18 @@
 <Installer>
     <Name>Ramses</Name>
     <Version>0.8.x</Version>
-    <Title>Ramses Application Installer</Title>
+    <Title>Ramses</Title>
     <Publisher>RxLaboratory</Publisher>
     <StartMenuDir>Ramses</StartMenuDir>
     <ProductUrl>https://rxlaboratory.org/tools/ramses/</ProductUrl>
     <TargetDir>@ApplicationsDir@/RxLaboratory/Ramses</TargetDir>
     <RunProgram>@TargetDir@/ramses</RunProgram>
+    <InstallerApplicationIcon>ramses.ico</InstallerApplicationIcon>
+    <InstallerWindowIcon>ramses.png</InstallerWindowIcon>
+    <WizardShowPageList>true</WizardShowPageList>
+    <WizardStyle>Modern</WizardStyle>
+    <!--<StyleSheet>style.qss</StyleSheet>-->
+    <WizardDefaultHeight>600</WizardDefaultHeight>
+    <WizardDefaultWidth>960</WizardDefaultWidth>
+    <ControlScript>controlscript.js</ControlScript>
 </Installer>
