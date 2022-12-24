@@ -8,8 +8,8 @@
     <ProductUrl>https://rxlaboratory.org/tools/ramses/</ProductUrl>
     <TargetDir>@ApplicationsDir@/RxLaboratory/Ramses</TargetDir>
     <RunProgram>@TargetDir@/ramses</RunProgram>
-    <InstallerApplicationIcon>ramses.ico</InstallerApplicationIcon>
-    <InstallerWindowIcon>ramses.png</InstallerWindowIcon>
+    <InstallerApplicationIcon>ramses</InstallerApplicationIcon>
+    <InstallerWindowIcon>ramses_install.png</InstallerWindowIcon>
     <WizardShowPageList>true</WizardShowPageList>
     <WizardStyle>Modern</WizardStyle>
     <MaintenanceToolName>Ramses_MaintenanceTool</MaintenanceToolName>
