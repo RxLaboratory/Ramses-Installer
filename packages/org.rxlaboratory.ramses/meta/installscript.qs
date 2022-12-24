@@ -65,7 +65,7 @@ Component.prototype.licensePageEntered = function()
 Component.prototype.createOperations = function()
 {   
 
-    // call default implementation to actually install the registeredfile
+    // call default implementation
     component.createOperations();
 
     if (systemInfo.productType === "windows") {
