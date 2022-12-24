@@ -3,7 +3,7 @@
     <DisplayName>The Ramses Application</DisplayName>
     <Description>Install the Ramses application.</Description>
     <Version>0.8.8</Version>
-    <ReleaseDate>2022-12-23</ReleaseDate>
+    <ReleaseDate>2022-12-24</ReleaseDate>
     <Default>true</Default>
     <Required>true</Required>
     <Licenses>

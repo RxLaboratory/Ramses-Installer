@@ -12,9 +12,17 @@
     <InstallerWindowIcon>ramses.png</InstallerWindowIcon>
     <WizardShowPageList>true</WizardShowPageList>
     <WizardStyle>Modern</WizardStyle>
+    <MaintenanceToolName>Ramses_MaintenanceTool</MaintenanceToolName>
     <!--<StyleSheet>style.qss</StyleSheet>-->
     <WizardDefaultHeight>600</WizardDefaultHeight>
     <WizardDefaultWidth>960</WizardDefaultWidth>
     <ControlScript>controlscript.js</ControlScript>
     <RemoveTargetDir>false</RemoveTargetDir>
+    <!--<RemoteRepositories>
+        <Repository>
+            <Url>https://repo.rxlab.io/ramses/client</Url>
+            <Enabled>1</Enabled>
+            <DisplayName>RxLaboratory</DisplayName>
+        </Repository>
+    </RemoteRepositories>-->
 </Installer>

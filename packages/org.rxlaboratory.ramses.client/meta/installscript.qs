@@ -1,8 +1,11 @@
 var targetDirectoryPage = null;
+var maintenanceToolName = "";
 
 function Component()
 {
-    component.loaded.connect(this, this.addTargetDirWidget);
+    if (installer.isInstaller())
+        component.loaded.connect(this, this.addTargetDirWidget);
+    maintenanceToolName = installer.value("MaintenanceToolName") + ".exe";
 }
 
 Component.prototype.addTargetDirWidget = function()
@@ -19,16 +22,11 @@ Component.prototype.addTargetDirWidget = function()
     targetDirectoryPage.targetDirectory.setText(installer.value("TargetDir"));
     targetDirectoryPage.targetChooser.released.connect(this, this.targetChooserClicked);
 
-    if (!installer.isInstaller() || systemInfo.productType !== "windows") {
-        targetDirectoryPage.RegisterFileCheckBox.hide();
-    }
-
     if (systemInfo.productType !== "windows") {
+        targetDirectoryPage.RegisterFileCheckBox.hide();
         targetDirectoryPage.AddStartMenuShortcutCheckBox.hide();
         targetDirectoryPage.AddDesktopShortcutCheckBox.hide();
     }
-
-    gui.pageById(QInstaller.LicenseCheck).entered.connect(this, this.licensePageEntered);
 }
 
 Component.prototype.targetChooserClicked = function()
@@ -40,10 +38,38 @@ Component.prototype.targetChooserClicked = function()
 Component.prototype.targetDirectoryChanged = function()
 {
     var dir = targetDirectoryPage.targetDirectory.text;
-    if (installer.fileExists(dir) && installer.fileExists(dir + "/maintenancetool.exe")) {
-        targetDirectoryPage.warning.setText("<p style=\"color: #a526c4\">" + installer.value("Name") + " is already installed. It will be uninstalled when going to the next page.</p>");
+    if (installer.fileExists(dir) && installer.fileExists(dir + "/" + maintenanceToolName)) {
+        targetDirectoryPage.warning.setText("<p style=\"color: #a526c4\">" + installer.value("Name") + " is already installed. Click the <i>Next</i> button to launch the maintenance tool to update or uninstall it.</p>");
+
+        //installer.finishButtonClicked.connect(this, this.runMaintenanceTool);
+        gui.pageById(QInstaller.InstallationFinished).entered.connect(this, this.runMaintenanceTool);
+
+        installer.setDefaultPageVisible(QInstaller.ReadyForInstallation, false);
+        installer.setDefaultPageVisible(QInstaller.StartMenuSelection, false);
+        installer.setDefaultPageVisible(QInstaller.PerformInstallation, false);
+        installer.setDefaultPageVisible(QInstaller.LicenseCheck, false);
+
+        installer.setValue("RunProgram", "");
+        installer.setValue("FinishedText", installer.value("Name") + " is already installed.");
+
+        targetDirectoryPage.RegisterFileCheckBox.hide();
+        targetDirectoryPage.AddStartMenuShortcutCheckBox.hide();
+        targetDirectoryPage.AddDesktopShortcutCheckBox.hide();
+
+        installer.setValue("TargetDir", dir);
+        return;
     }
-    else if (installer.fileExists(dir)) {
+
+    installer.setDefaultPageVisible(QInstaller.ReadyForInstallation, true);
+    installer.setDefaultPageVisible(QInstaller.StartMenuSelection, true);
+    installer.setDefaultPageVisible(QInstaller.PerformInstallation, true);
+    installer.setDefaultPageVisible(QInstaller.LicenseCheck, true);
+
+    targetDirectoryPage.RegisterFileCheckBox.show();
+    targetDirectoryPage.AddStartMenuShortcutCheckBox.show();
+    targetDirectoryPage.AddDesktopShortcutCheckBox.show();
+
+    if (installer.fileExists(dir)) {
         targetDirectoryPage.warning.setText("<p style=\"color: red\">Warning: Installing in an existing directory. It will be wiped on uninstallation.</p>");
     }
     else {
@@ -52,13 +78,16 @@ Component.prototype.targetDirectoryChanged = function()
     installer.setValue("TargetDir", dir);
 }
 
-Component.prototype.licensePageEntered = function()
+Component.prototype.runMaintenanceTool = function()
 {
     var dir = installer.value("TargetDir");
-    if (installer.fileExists(dir) && installer.fileExists(dir + "/maintenancetool.exe")) {
-        installer.gainAdminRights();
-        installer.execute(dir + "/maintenancetool.exe", ["purge", "-c"]);
+    if (installer.fileExists(dir) && installer.fileExists(dir + "/" + maintenanceToolName)) {
+        installer.execute(dir + "/" + maintenanceToolName, ["--start-uninstaller"] /*["purge", "-c"]*/);
     }
+    else {
+        QMessageBox.warning("maintenanceToolNotFound", "Maintenance Tool", "The Maintenance Tool can't be found.");
+    }
+    gui.clickButton(buttons.FinishButton, 100);
 }
 
 // Here we are creating the operation chain which will be processed at the real installation part later
@@ -68,7 +97,7 @@ Component.prototype.createOperations = function()
     // call default implementation
     component.createOperations();
 
-    if (systemInfo.productType === "windows") {
+    if (installer.isInstaller() && systemInfo.productType === "windows") {
         targetDirectoryPage = gui.pageWidgetByObjectName("DynamicTargetWidget");
         var registerFile = targetDirectoryPage.RegisterFileCheckBox.checked;
         var createDesktopShortcut = targetDirectoryPage.AddDesktopShortcutCheckBox.checked;
@@ -85,7 +114,7 @@ Component.prototype.createOperations = function()
                                "Ramses Database",
                                "application/x-sqlite3",
                                ramsesPath + "," + iconId,
-                               "ProgId=org.rxlaboratory.ramses");
+                               "ProgId=org.rxlaboratory.ramses.client");
         }
 
         if (createDesktopShortcut) {
@@ -108,7 +137,14 @@ Component.prototype.createOperations = function()
                                     "iconPath=@TargetDir@/ramses.exe",
                                     "iconId=0",
                                     "description=Run Ramses");
+            component.addOperation("CreateShortcut",
+                                    "@TargetDir@\\" + maintenanceToolName,
+                                    "@StartMenuDir@/Ramses Maintenance Tool.lnk",
+                                    "--start-package-manager",
+                                    "workingDirectory=@TargetDir@",
+                                    "iconPath=@TargetDir@/Ramses_MaintenanceTool.exe",
+                                    "iconId=0",
+                                    "description=Update or Uninstall Ramses");
         }
-       
     }
 }
