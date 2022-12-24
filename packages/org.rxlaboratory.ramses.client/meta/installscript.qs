@@ -3,8 +3,11 @@ var maintenanceToolName = "";
 
 function Component()
 {
-    if (installer.isInstaller())
+    if (installer.isInstaller()) {
+        installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
         component.loaded.connect(this, this.addTargetDirWidget);
+    }
+    
     maintenanceToolName = installer.value("MaintenanceToolName") + ".exe";
 }
 
@@ -82,12 +85,12 @@ Component.prototype.runMaintenanceTool = function()
 {
     var dir = installer.value("TargetDir");
     if (installer.fileExists(dir) && installer.fileExists(dir + "/" + maintenanceToolName)) {
-        installer.execute(dir + "/" + maintenanceToolName, ["--start-uninstaller"] /*["purge", "-c"]*/);
+        installer.executeDetached(dir + "/" + maintenanceToolName, ["--start-uninstaller"] /*["purge", "-c"]*/);
     }
     else {
         QMessageBox.warning("maintenanceToolNotFound", "Maintenance Tool", "The Maintenance Tool can't be found.");
     }
-    gui.clickButton(buttons.FinishButton, 100);
+    gui.clickButton(buttons.FinishButton);
 }
 
 // Here we are creating the operation chain which will be processed at the real installation part later

@@ -9,7 +9,6 @@
     <Licenses>
         <License name="GNU General Public License v3" file="license.txt" />
     </Licenses>
-    <Default>true</Default>
     <Script>installscript.qs</Script>
     <UserInterfaces>
         <UserInterface>targetWidget.ui</UserInterface>

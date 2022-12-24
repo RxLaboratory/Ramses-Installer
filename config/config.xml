@@ -8,7 +8,7 @@
     <ProductUrl>https://rxlaboratory.org/tools/ramses/</ProductUrl>
     <TargetDir>@ApplicationsDir@/RxLaboratory/Ramses</TargetDir>
     <RunProgram>@TargetDir@/ramses</RunProgram>
-    <InstallerApplicationIcon>ramses</InstallerApplicationIcon>
+    <InstallerApplicationIcon>ramses_install</InstallerApplicationIcon>
     <InstallerWindowIcon>ramses_install.png</InstallerWindowIcon>
     <WizardShowPageList>true</WizardShowPageList>
     <WizardStyle>Modern</WizardStyle>
@@ -18,11 +18,11 @@
     <WizardDefaultWidth>960</WizardDefaultWidth>
     <ControlScript>controlscript.js</ControlScript>
     <RemoveTargetDir>false</RemoveTargetDir>
-    <!--<RemoteRepositories>
+    <RemoteRepositories>
         <Repository>
             <Url>https://repo.rxlab.io/ramses/client</Url>
             <Enabled>1</Enabled>
             <DisplayName>RxLaboratory</DisplayName>
         </Repository>
-    </RemoteRepositories>-->
+    </RemoteRepositories>
 </Installer>
