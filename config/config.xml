@@ -13,7 +13,7 @@
     <WizardShowPageList>true</WizardShowPageList>
     <WizardStyle>Modern</WizardStyle>
     <!--<StyleSheet>style.qss</StyleSheet>-->
-    <WizardDefaultHeight>600</WizardDefaultHeight>
+    <WizardDefaultHeight>800</WizardDefaultHeight>
     <WizardDefaultWidth>960</WizardDefaultWidth>
     <ControlScript>controlscript.js</ControlScript>
     <RemoveTargetDir>false</RemoveTargetDir>
