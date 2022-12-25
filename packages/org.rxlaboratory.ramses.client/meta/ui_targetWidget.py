@@ -13,7 +13,7 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
-class Ui_TargetDirWidget(object):
+class Ui_TargetWidget(object):
     def setupUi(self, TargetWidget):
         if not TargetWidget.objectName():
             TargetWidget.setObjectName(u"TargetWidget")
@@ -35,7 +35,6 @@ class Ui_TargetDirWidget(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.targetDirectory = QLineEdit(TargetWidget)
         self.targetDirectory.setObjectName(u"targetDirectory")
-        self.targetDirectory.setReadOnly(True)
 
         self.horizontalLayout.addWidget(self.targetDirectory)
 
@@ -75,11 +74,11 @@ class Ui_TargetDirWidget(object):
 
         self.verticalLayout.addWidget(self.RegisterFileCheckBox)
 
-        self.AddStartMenuShortcutCheckBox = QCheckBox(TargetWidget)
-        self.AddStartMenuShortcutCheckBox.setObjectName(u"AddStartMenuShortcutCheckBox")
-        self.AddStartMenuShortcutCheckBox.setChecked(True)
+        self.addStartMenuShortcutBox = QCheckBox(TargetWidget)
+        self.addStartMenuShortcutBox.setObjectName(u"addStartMenuShortcutBox")
+        self.addStartMenuShortcutBox.setChecked(True)
 
-        self.verticalLayout.addWidget(self.AddStartMenuShortcutCheckBox)
+        self.verticalLayout.addWidget(self.addStartMenuShortcutBox)
 
         self.AddDesktopShortcutCheckBox = QCheckBox(TargetWidget)
         self.AddDesktopShortcutCheckBox.setObjectName(u"AddDesktopShortcutCheckBox")
@@ -98,12 +97,12 @@ class Ui_TargetDirWidget(object):
     # setupUi
 
     def retranslateUi(self, TargetWidget):
-        TargetWidget.setWindowTitle(QCoreApplication.translate("TargetDirWidget", u"Form", None))
+        TargetWidget.setWindowTitle(QCoreApplication.translate("TargetWidget", u"Form", None))
         self.description.setText("")
-        self.targetChooser.setText(QCoreApplication.translate("TargetDirWidget", u"...", None))
-        self.warning.setText(QCoreApplication.translate("TargetDirWidget", u"TextLabel", None))
-        self.RegisterFileCheckBox.setText(QCoreApplication.translate("TargetDirWidget", u"Associate *.ramses files with the Ramses Application", None))
-        self.AddStartMenuShortcutCheckBox.setText(QCoreApplication.translate("TargetDirWidget", u"Create start menu entry", None))
-        self.AddDesktopShortcutCheckBox.setText(QCoreApplication.translate("TargetDirWidget", u"Create desktop shortcut", None))
+        self.targetChooser.setText(QCoreApplication.translate("TargetWidget", u"Browse...", None))
+        self.warning.setText(QCoreApplication.translate("TargetWidget", u"TextLabel", None))
+        self.RegisterFileCheckBox.setText(QCoreApplication.translate("TargetWidget", u"Associate *.ramses files with the Ramses Application", None))
+        self.addStartMenuShortcutBox.setText(QCoreApplication.translate("TargetWidget", u"Create start menu entry", None))
+        self.AddDesktopShortcutCheckBox.setText(QCoreApplication.translate("TargetWidget", u"Create desktop shortcut", None))
     # retranslateUi
 

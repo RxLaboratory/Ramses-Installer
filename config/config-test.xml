@@ -17,11 +17,11 @@
     <WizardDefaultWidth>960</WizardDefaultWidth>
     <ControlScript>controlscript.js</ControlScript>
     <RemoveTargetDir>false</RemoveTargetDir>
-    <RemoteRepositories>
+    <!--<RemoteRepositories>
         <Repository>
             <Url>https://repo.rxlab.io/ramses/client</Url>
             <Enabled>1</Enabled>
             <DisplayName>RxLaboratory</DisplayName>
         </Repository>
-    </RemoteRepositories>
+    </RemoteRepositories>-->
 </Installer>

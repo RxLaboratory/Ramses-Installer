@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>The Ramses Application</DisplayName>
-    <Description>Install the Ramses application.</Description>
+    <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
     <Version>0.8.8</Version>
     <ReleaseDate>2022-12-24</ReleaseDate>
     <Default>true</Default>
@@ -9,8 +9,9 @@
     <Licenses>
         <License name="GNU General Public License v3" file="license.txt" />
     </Licenses>
-    <Script>installscript.qs</Script>
+    <Script>installscript.js</Script>
     <UserInterfaces>
         <UserInterface>targetWidget.ui</UserInterface>
+        <UserInterface>finishWidget.ui</UserInterface>
     </UserInterfaces>
 </Package>
