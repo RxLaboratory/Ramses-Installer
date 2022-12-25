@@ -17,10 +17,14 @@ class Ui_FinishWidget(object):
     def setupUi(self, FinishWidget):
         if not FinishWidget.objectName():
             FinishWidget.setObjectName(u"FinishWidget")
-        FinishWidget.resize(504, 452)
+        FinishWidget.resize(504, 696)
         self.verticalLayout = QVBoxLayout(FinishWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 3)
+        self.verticalLayout.setContentsMargins(6, 0, 0, 3)
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_2)
+
         self.label = QLabel(FinishWidget)
         self.label.setObjectName(u"label")
 
@@ -38,11 +42,15 @@ class Ui_FinishWidget(object):
         self.verticalLayout_2 = QVBoxLayout(self.widget)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(15, -1, -1, -1)
-        self.radioButton_2 = QRadioButton(self.widget)
-        self.radioButton_2.setObjectName(u"radioButton_2")
-        self.radioButton_2.setChecked(True)
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_2.addWidget(self.radioButton_2)
+        self.verticalLayout_2.addItem(self.verticalSpacer_4)
+
+        self.membershipButton = QRadioButton(self.widget)
+        self.membershipButton.setObjectName(u"membershipButton")
+        self.membershipButton.setChecked(True)
+
+        self.verticalLayout_2.addWidget(self.membershipButton)
 
         self.label_2 = QLabel(self.widget)
         self.label_2.setObjectName(u"label_2")
@@ -51,10 +59,10 @@ class Ui_FinishWidget(object):
 
         self.verticalLayout_2.addWidget(self.label_2)
 
-        self.radioButton = QRadioButton(self.widget)
-        self.radioButton.setObjectName(u"radioButton")
+        self.commercialButton = QRadioButton(self.widget)
+        self.commercialButton.setObjectName(u"commercialButton")
 
-        self.verticalLayout_2.addWidget(self.radioButton)
+        self.verticalLayout_2.addWidget(self.commercialButton)
 
         self.label_3 = QLabel(self.widget)
         self.label_3.setObjectName(u"label_3")
@@ -63,10 +71,10 @@ class Ui_FinishWidget(object):
 
         self.verticalLayout_2.addWidget(self.label_3)
 
-        self.radioButton_3 = QRadioButton(self.widget)
-        self.radioButton_3.setObjectName(u"radioButton_3")
+        self.nonProfitButton = QRadioButton(self.widget)
+        self.nonProfitButton.setObjectName(u"nonProfitButton")
 
-        self.verticalLayout_2.addWidget(self.radioButton_3)
+        self.verticalLayout_2.addWidget(self.nonProfitButton)
 
         self.label_4 = QLabel(self.widget)
         self.label_4.setObjectName(u"label_4")
@@ -75,20 +83,24 @@ class Ui_FinishWidget(object):
 
         self.verticalLayout_2.addWidget(self.label_4)
 
-        self.radioButton_6 = QRadioButton(self.widget)
-        self.radioButton_6.setObjectName(u"radioButton_6")
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_2.addWidget(self.radioButton_6)
+        self.verticalLayout_2.addItem(self.verticalSpacer_3)
 
-        self.radioButton_4 = QRadioButton(self.widget)
-        self.radioButton_4.setObjectName(u"radioButton_4")
+        self.giveAHandButton = QRadioButton(self.widget)
+        self.giveAHandButton.setObjectName(u"giveAHandButton")
 
-        self.verticalLayout_2.addWidget(self.radioButton_4)
+        self.verticalLayout_2.addWidget(self.giveAHandButton)
 
-        self.radioButton_5 = QRadioButton(self.widget)
-        self.radioButton_5.setObjectName(u"radioButton_5")
+        self.dontWantButton = QRadioButton(self.widget)
+        self.dontWantButton.setObjectName(u"dontWantButton")
 
-        self.verticalLayout_2.addWidget(self.radioButton_5)
+        self.verticalLayout_2.addWidget(self.dontWantButton)
+
+        self.okButton = QRadioButton(self.widget)
+        self.okButton.setObjectName(u"okButton")
+
+        self.verticalLayout_2.addWidget(self.okButton)
 
 
         self.verticalLayout.addWidget(self.widget)
@@ -107,14 +119,14 @@ class Ui_FinishWidget(object):
         FinishWidget.setWindowTitle(QCoreApplication.translate("FinishWidget", u"Form", None))
         self.label.setText(QCoreApplication.translate("FinishWidget", u"<strong>Your contribution</strong>", None))
         self.label_5.setText(QCoreApplication.translate("FinishWidget", u"<html><head/><body><p>The only way we can continue to develop, maintain, distribute and support free software is for you to contribute.</p><p>When making your donation, <span style=\" font-weight:700;\">you choose the amount, what you think is right, what you can afford</span>.</p></body></html>", None))
-        self.radioButton_2.setText(QCoreApplication.translate("FinishWidget", u"RxLab Membership", None))
+        self.membershipButton.setText(QCoreApplication.translate("FinishWidget", u"RxLab Membership", None))
         self.label_2.setText(QCoreApplication.translate("FinishWidget", u"<html><head/><body><p><span style=\" font-weight:700;\">Support the development</span> of free and open source software by joining us, and get an <span style=\" font-weight:700;\">early access</span> to your shiny new <span style=\" font-weight:700;\">tools</span>, <span style=\" font-weight:700;\">tutorials</span> and other <span style=\" font-weight:700;\">exclusive perks</span>.</p></body></html>", None))
-        self.radioButton.setText(QCoreApplication.translate("FinishWidget", u"Commercial use", None))
+        self.commercialButton.setText(QCoreApplication.translate("FinishWidget", u"Commercial use", None))
         self.label_3.setText(QCoreApplication.translate("FinishWidget", u"<html><head/><body><p><span style=\" font-weight:700;\">You\u2019re a company or a freelance professional</span>, you\u2019re being paid for your work, <span style=\" font-weight:700;\">you have to contribute before using our tools</span>.</p></body></html>", None))
-        self.radioButton_3.setText(QCoreApplication.translate("FinishWidget", u"Non-Profit / Educational use", None))
+        self.nonProfitButton.setText(QCoreApplication.translate("FinishWidget", u"Non-Profit / Educational use", None))
         self.label_4.setText(QCoreApplication.translate("FinishWidget", u"<html><head/><body><p><span style=\" font-weight:700;\">You\u2019re a student or a teacher, you work for a non-profit organization, you\u2019re a hobbyist</span>, your donation is not mandatory but is still much needed.</p></body></html>", None))
-        self.radioButton_6.setText(QCoreApplication.translate("FinishWidget", u"I'd rather give a hand than contributing financially", None))
-        self.radioButton_4.setText(QCoreApplication.translate("FinishWidget", u"I don't want to contribute and support free and open source software.", None))
-        self.radioButton_5.setText(QCoreApplication.translate("FinishWidget", u"I've already contributed recently", None))
+        self.giveAHandButton.setText(QCoreApplication.translate("FinishWidget", u"I'd rather give a hand than contribute financially", None))
+        self.dontWantButton.setText(QCoreApplication.translate("FinishWidget", u"I don't want to contribute and support free and open source software.", None))
+        self.okButton.setText(QCoreApplication.translate("FinishWidget", u"I've already contributed recently", None))
     # retranslateUi
 

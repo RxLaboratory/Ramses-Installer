@@ -70,8 +70,8 @@ Component.prototype.createOperations = function()
 function _a(text)
 {
     QMessageBox.information(
-        "alert",
-        "Installer",
+        "debugAlert",
+        "Installer Debug Alert",
         text.toString()
     );
 }
@@ -79,13 +79,15 @@ function _a(text)
 function setupUi()
 {
     if (installer.isInstaller()) {
-        // Hide components selection
-        installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
+        // Hide components selection if only a single one (+ the maintenance tool)
+        if (installer.components().length <= 2) installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
+        // Setup our own target widget
         component.loaded.connect(this, addTargetDirWidget);
         gui.pageById(QInstaller.InstallationFinished).entered.connect(this, runMaintenanceTool);
     }
     if (!installer.isUninstaller()) {
         component.loaded.connect(this, addFinishWidget);
+        installer.finishButtonClicked.connect(this, contribute);
     }
 }
 
@@ -124,9 +126,7 @@ function addFinishWidget()
 
 function chooseTargetDialog()
 {
-    var name = installer.value("Name")
-    var dir = QFileDialog.getExistingDirectory("Select a directory to install " + name, targetDirectoryPage.targetDirectory.text);
-    if (!dir.toLowerCase().endsWith(name.toLowerCase())) dir += "/" + name;
+    var dir = QFileDialog.getExistingDirectory("Select a directory to install " + installer.value("Name"), targetDirectoryPage.targetDirectory.text);
     dir = installer.toNativeSeparators(dir);
     targetDirectoryPage.targetDirectory.setText(dir);
 }
@@ -163,11 +163,14 @@ function changeTargetDir()
     targetDirectoryPage.AddDesktopShortcutCheckBox.show();
 
     if (installer.fileExists(dir)) {
-        targetDirectoryPage.warning.setText("<p style=\"color: red\">Warning: Installing in an existing directory. It will be wiped on uninstallation.</p>");
+        var files = QDesktopServices.findFiles(dir, "*");
+        if (files.length > 0) {
+            targetDirectoryPage.warning.setText("<p style=\"color: red\">Warning: Installing in an existing directory. It will be wiped on uninstallation.</p>");
+            return;
+        }
     }
-    else {
-        targetDirectoryPage.warning.setText("");
-    }
+    
+    targetDirectoryPage.warning.setText("");
 }
 
 function runMaintenanceTool()
@@ -182,4 +185,22 @@ function runMaintenanceTool()
         QMessageBox.warning("maintenanceToolNotFound", "Maintenance Tool", "The Maintenance Tool can't be found.");
     }
     gui.rejectWithoutPrompt();
+}
+
+function contribute()
+{
+    var widget = component.userInterface( "FinishWidget" );
+
+    if (gui.findChild(widget, "membershipButton").checked) {
+        QDesktopServices.openUrl("http://membership.rxlab.info");
+    }
+    else if (gui.findChild(widget, "commercialButton").checked) {
+        QDesktopServices.openUrl("https://rxlaboratory.org/product/rx-open-tools-professional-contribution/");
+    }
+    else if (gui.findChild(widget, "nonProfitButton").checked) {
+        QDesktopServices.openUrl("https://rxlaboratory.org/product/one-time-donation/");
+    }
+    else if (gui.findChild(widget, "giveAHandButton").checked) {
+        QDesktopServices.openUrl("http://contribute.rxlab.info/");
+    }
 }

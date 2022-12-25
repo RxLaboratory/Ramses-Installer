@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>504</width>
-    <height>452</height>
+    <height>696</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="leftMargin">
-    <number>0</number>
+    <number>6</number>
    </property>
    <property name="topMargin">
     <number>0</number>
@@ -26,6 +26,19 @@
    <property name="bottomMargin">
     <number>3</number>
    </property>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
@@ -53,7 +66,20 @@
        <number>15</number>
       </property>
       <item>
-       <widget class="QRadioButton" name="radioButton_2">
+       <spacer name="verticalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="membershipButton">
         <property name="text">
          <string>RxLab Membership</string>
         </property>
@@ -76,7 +102,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton">
+       <widget class="QRadioButton" name="commercialButton">
         <property name="text">
          <string>Commercial use</string>
         </property>
@@ -96,7 +122,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_3">
+       <widget class="QRadioButton" name="nonProfitButton">
         <property name="text">
          <string>Non-Profit / Educational use</string>
         </property>
@@ -116,21 +142,34 @@
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_6">
+       <spacer name="verticalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="giveAHandButton">
         <property name="text">
-         <string>I'd rather give a hand than contributing financially</string>
+         <string>I'd rather give a hand than contribute financially</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_4">
+       <widget class="QRadioButton" name="dontWantButton">
         <property name="text">
          <string>I don't want to contribute and support free and open source software.</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_5">
+       <widget class="QRadioButton" name="okButton">
         <property name="text">
          <string>I've already contributed recently</string>
         </property>
