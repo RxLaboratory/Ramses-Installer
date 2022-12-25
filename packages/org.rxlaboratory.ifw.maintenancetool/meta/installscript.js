@@ -1,5 +1,6 @@
 var targetDirectoryPage = null;
 var maintenanceToolName = "";
+var finishWidget = null;
 var doRunMaintenanceTool = false;
 
 function Component()
@@ -69,6 +70,8 @@ function showStartMenuPage()
 
 function addTargetDirWidget()
 {
+    if (targetDirectoryPage) return;
+
     // Hide the target dir to add our own
     installer.setDefaultPageVisible(QInstaller.TargetDirectory, false);
     installer.addWizardPage(component, "TargetWidget", QInstaller.TargetDirectory);
@@ -91,7 +94,11 @@ function addTargetDirWidget()
 
 function addFinishWidget()
 {
+    // Already there
+    if (finishWidget) return;
+    
     installer.addWizardPageItem(component, "FinishWidget", QInstaller.InstallationFinished);
+    finishWidget = component.userInterface( "FinishWidget" );
 }
 
 function chooseTargetDialog()
@@ -123,6 +130,8 @@ function changeTargetDir()
 
         return;
     }
+
+    doRunMaintenanceTool = false;
 
     if (installer.components().length > 2) installer.setDefaultPageVisible(QInstaller.ComponentSelection, true);
 
@@ -162,18 +171,16 @@ function runMaintenanceTool()
 
 function contribute()
 {
-    var widget = component.userInterface( "FinishWidget" );
-
-    if (gui.findChild(widget, "membershipButton").checked) {
+    if (gui.findChild(finishWidget, "membershipButton").checked) {
         QDesktopServices.openUrl("http://membership.rxlab.info");
     }
-    else if (gui.findChild(widget, "commercialButton").checked) {
+    else if (gui.findChild(finishWidget, "commercialButton").checked) {
         QDesktopServices.openUrl("https://rxlaboratory.org/product/rx-open-tools-professional-contribution/");
     }
-    else if (gui.findChild(widget, "nonProfitButton").checked) {
+    else if (gui.findChild(finishWidget, "nonProfitButton").checked) {
         QDesktopServices.openUrl("https://rxlaboratory.org/product/one-time-donation/");
     }
-    else if (gui.findChild(widget, "giveAHandButton").checked) {
+    else if (gui.findChild(finishWidget, "giveAHandButton").checked) {
         QDesktopServices.openUrl("http://contribute.rxlab.info/");
     }
 }
