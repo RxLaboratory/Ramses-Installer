@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Python API</DisplayName>
+    <Description>Write your own add-ons in Python using the ramses module.</Description>
+    <Version>0.8.0</Version>
+    <ReleaseDate>2022-11-01</ReleaseDate>
+    <Default>false</Default>
+    <Required>false</Required>
+    <Licenses>
+        <License name="GNU General Public License v3" file="license.txt" />
+    </Licenses>
+</Package>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Scripting API</DisplayName>
+    <Description>Write your own add-ons for Ramses.</Description>
+    <Version>0.8</Version>
+    <ReleaseDate>2022-11-01</ReleaseDate>
+    <Default>false</Default>
+    <Required>false</Required>
+    <SortingPriority>10</SortingPriority>
+    <ExpandedByDefault>false</ExpandedByDefault>
+</Package>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Server</DisplayName>
+    <Description>Use the Ramses server to sync data between all Ramses Applications.</Description>
+    <Version>0.8</Version>
+    <ReleaseDate>2022-11-01</ReleaseDate>
+    <Default>false</Default>
+    <Required>false</Required>
+    <SortingPriority>0</SortingPriority>
+    <ExpandedByDefault>false</ExpandedByDefault>
+</Package>

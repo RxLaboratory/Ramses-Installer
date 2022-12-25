@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Add-ons</DisplayName>
+    <Description>Add-ons to integrate Ramses in your creative applications.</Description>
+    <Version>0.8</Version>
+    <ReleaseDate>2022-11-01</ReleaseDate>
+    <Default>false</Default>
+    <Required>false</Required>
+    <SortingPriority>20</SortingPriority>
+    <ExpandedByDefault>false</ExpandedByDefault>
+</Package>

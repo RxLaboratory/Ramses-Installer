@@ -6,7 +6,7 @@
     <Publisher>RxLaboratory</Publisher>
     <ProductUrl>https://rxlaboratory.org/tools/ramses/</ProductUrl>
     <TargetDir>@ApplicationsDir@/RxLaboratory/Ramses</TargetDir>
-    <RunProgram>@TargetDir@/ramses</RunProgram>
+    <RunProgram>@TargetDir@/client/ramses</RunProgram>
     <StartMenuDir>Ramses</StartMenuDir>
     <InstallerApplicationIcon>ramses_install</InstallerApplicationIcon>
     <InstallerWindowIcon>ramses_install.png</InstallerWindowIcon>

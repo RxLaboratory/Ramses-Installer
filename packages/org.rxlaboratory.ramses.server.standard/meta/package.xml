@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Standard Server</DisplayName>
+    <Description>Use the Ramses server to sync data between all Ramses Applications.\n\nThis is the standard server, which can easily be installed on any web server running PHP.</Description>
+    <Version>0.8.1</Version>
+    <ReleaseDate>2022-11-01</ReleaseDate>
+    <Default>false</Default>
+    <Required>false</Required>
+    <SortingPriority>3</SortingPriority>
+    <Licenses>
+        <License name="GNU General Public License v3" file="license.txt" />
+    </Licenses>
+</Package>
