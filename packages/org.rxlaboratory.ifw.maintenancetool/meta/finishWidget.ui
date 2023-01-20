@@ -18,7 +18,7 @@
     <number>6</number>
    </property>
    <property name="topMargin">
-    <number>0</number>
+    <number>15</number>
    </property>
    <property name="rightMargin">
     <number>0</number>
@@ -26,19 +26,6 @@
    <property name="bottomMargin">
     <number>3</number>
    </property>
-   <item>
-    <spacer name="verticalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
@@ -79,32 +66,12 @@
        </spacer>
       </item>
       <item>
-       <widget class="QRadioButton" name="membershipButton">
-        <property name="text">
-         <string>RxLab Membership</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_2">
-        <property name="styleSheet">
-         <string notr="true">margin-left: 20px;</string>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Support the development&lt;/span&gt; of free and open source software by joining us, and get an &lt;span style=&quot; font-weight:700;&quot;&gt;early access&lt;/span&gt; to your shiny new &lt;span style=&quot; font-weight:700;&quot;&gt;tools&lt;/span&gt;, &lt;span style=&quot; font-weight:700;&quot;&gt;tutorials&lt;/span&gt; and other &lt;span style=&quot; font-weight:700;&quot;&gt;exclusive perks&lt;/span&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-        <property name="wordWrap">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QRadioButton" name="commercialButton">
         <property name="text">
          <string>Commercial use</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -135,6 +102,26 @@
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;You’re a student or a teacher, you work for a non-profit organization, you’re a hobbyist&lt;/span&gt;, your donation is not mandatory but is still much needed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="membershipButton">
+        <property name="text">
+         <string>RxLab Membership</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="styleSheet">
+         <string notr="true">margin-left: 20px;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Support the development&lt;/span&gt; of free and open source software by joining us, and get an &lt;span style=&quot; font-weight:700;&quot;&gt;early access&lt;/span&gt; to your shiny new &lt;span style=&quot; font-weight:700;&quot;&gt;tools&lt;/span&gt;, &lt;span style=&quot; font-weight:700;&quot;&gt;tutorials&lt;/span&gt; and other &lt;span style=&quot; font-weight:700;&quot;&gt;exclusive perks&lt;/span&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>

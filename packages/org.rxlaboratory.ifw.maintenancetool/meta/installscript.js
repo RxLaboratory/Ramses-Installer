@@ -58,7 +58,8 @@ function setupUi()
     }
     if (!installer.isUninstaller()) {
         component.loaded.connect(this, addFinishWidget);
-        installer.finishButtonClicked.connect(this, contribute);
+        gui.pageById(QInstaller.PerformInstallation).entered.connect(this, contribute);
+        //installer.finishButtonClicked.connect(this, contribute);
     }
 }
 
@@ -97,7 +98,7 @@ function addFinishWidget()
     // Already there
     if (finishWidget) return;
     
-    installer.addWizardPageItem(component, "FinishWidget", QInstaller.InstallationFinished);
+    installer.addWizardPageItem(component, "FinishWidget", QInstaller.ReadyForInstallation);
     finishWidget = component.userInterface( "FinishWidget" );
 }
 
