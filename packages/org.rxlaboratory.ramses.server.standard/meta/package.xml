@@ -2,8 +2,8 @@
 <Package>
     <DisplayName>Standard Server</DisplayName>
     <Description>Use the Ramses server to sync data between all Ramses Applications.\n\nThis is the standard server, which can easily be installed on any web server running PHP.</Description>
-    <Version>0.8.1</Version>
-    <ReleaseDate>2022-11-01</ReleaseDate>
+    <Version>0.8.3</Version>
+    <ReleaseDate>2023-01-24</ReleaseDate>
     <Default>false</Default>
     <Required>false</Required>
     <SortingPriority>3</SortingPriority>

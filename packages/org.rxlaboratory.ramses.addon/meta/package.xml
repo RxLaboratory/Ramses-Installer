@@ -3,7 +3,7 @@
     <DisplayName>Add-ons</DisplayName>
     <Description>Add-ons to integrate Ramses in your creative applications.</Description>
     <Version>0.8</Version>
-    <ReleaseDate>2022-11-01</ReleaseDate>
+    <ReleaseDate>2023-01-24</ReleaseDate>
     <Default>false</Default>
     <Required>false</Required>
     <SortingPriority>20</SortingPriority>

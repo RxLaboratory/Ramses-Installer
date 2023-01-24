@@ -2,8 +2,8 @@
 <Package>
     <DisplayName>Ramses Application</DisplayName>
     <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
-    <Version>0.8.10</Version>
-    <ReleaseDate>2022-01-20</ReleaseDate>
+    <Version>0.8.11</Version>
+    <ReleaseDate>2023-01-24</ReleaseDate>
     <Default>true</Default>
     <Required>true</Required>
     <SortingPriority>30</SortingPriority>
