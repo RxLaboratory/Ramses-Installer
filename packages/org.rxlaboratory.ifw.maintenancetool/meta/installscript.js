@@ -55,6 +55,7 @@ function setupUi()
         component.loaded.connect(this, addTargetDirWidget);
         gui.pageById(QInstaller.InstallationFinished).entered.connect(this, runMaintenanceTool);
         gui.pageById(QInstaller.ReadyForInstallation).entered.connect(this, prepareInstallation);
+        gui.pageById(QInstaller.LicenseCheck).entered.connect(this, showHideStartMenuPage);
     }
     if (!installer.isUninstaller()) {
         component.loaded.connect(this, addFinishWidget);
@@ -63,10 +64,14 @@ function setupUi()
     }
 }
 
-function showStartMenuPage()
+function showHideStartMenuPage()
 {
-    var show = targetDirectoryPage.addStartMenuShortcutBox.checked;
-    installer.setDefaultPageVisible(QInstaller.StartMenuSelection, show);
+    // Hide the start menu selection if we're not installing the start menu shortcut
+    var component = installer.componentByName("org.rxlaboratory.ramses.client.startMenuShortcut");
+
+    if (!component.installationRequested()) {
+        installer.setDefaultPageVisible(QInstaller.StartMenuSelection, false);
+    }
 }
 
 function addTargetDirWidget()
@@ -84,12 +89,9 @@ function addTargetDirWidget()
     targetDirectoryPage.targetDirectory.textChanged.connect(this, changeTargetDir);
     targetDirectoryPage.targetDirectory.setText(installer.value("TargetDir"));
     targetDirectoryPage.targetChooser.released.connect(this, chooseTargetDialog);
-    targetDirectoryPage.addStartMenuShortcutBox.clicked.connect(this, showStartMenuPage);
 
     if (systemInfo.productType !== "windows") {
         targetDirectoryPage.RegisterFileCheckBox.hide();
-        targetDirectoryPage.addStartMenuShortcutBox.hide();
-        targetDirectoryPage.AddDesktopShortcutCheckBox.hide();
     }
 }
 
@@ -126,8 +128,6 @@ function changeTargetDir()
         installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
 
         targetDirectoryPage.RegisterFileCheckBox.hide();
-        targetDirectoryPage.addStartMenuShortcutBox.hide();
-        targetDirectoryPage.AddDesktopShortcutCheckBox.hide();
 
         return;
     }
@@ -142,8 +142,6 @@ function changeTargetDir()
     installer.setDefaultPageVisible(QInstaller.LicenseCheck, true);
 
     targetDirectoryPage.RegisterFileCheckBox.show();
-    targetDirectoryPage.addStartMenuShortcutBox.show();
-    targetDirectoryPage.AddDesktopShortcutCheckBox.show();
 
     if (installer.fileExists(dir)) {
         var files = QDesktopServices.findFiles(dir, "*");
@@ -176,10 +174,10 @@ function contribute()
         QDesktopServices.openUrl("http://membership.rxlab.info");
     }
     else if (gui.findChild(finishWidget, "commercialButton").checked) {
-        QDesktopServices.openUrl("https://rxlaboratory.org/product/rx-open-tools-professional-contribution/");
+        QDesktopServices.openUrl("https://rxlaboratory.org/product/rx-open-tools-contribution/");
     }
     else if (gui.findChild(finishWidget, "nonProfitButton").checked) {
-        QDesktopServices.openUrl("https://rxlaboratory.org/product/one-time-donation/");
+        QDesktopServices.openUrl("https://rxlaboratory.org/product/rx-open-tools-contribution/");
     }
     else if (gui.findChild(finishWidget, "giveAHandButton").checked) {
         QDesktopServices.openUrl("http://contribute.rxlab.info/");
@@ -189,6 +187,4 @@ function contribute()
 function prepareInstallation()
 {
     installer.setValue("registerFileType", targetDirectoryPage.RegisterFileCheckBox.checked);
-    installer.setValue("addDesktopShortcut", targetDirectoryPage.AddDesktopShortcutCheckBox.checked);
-    installer.setValue("addStartMenuShortcut", targetDirectoryPage.addStartMenuShortcutBox.checked);
 }

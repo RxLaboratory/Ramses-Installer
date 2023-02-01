@@ -74,18 +74,6 @@ class Ui_TargetWidget(object):
 
         self.verticalLayout.addWidget(self.RegisterFileCheckBox)
 
-        self.addStartMenuShortcutBox = QCheckBox(TargetWidget)
-        self.addStartMenuShortcutBox.setObjectName(u"addStartMenuShortcutBox")
-        self.addStartMenuShortcutBox.setChecked(True)
-
-        self.verticalLayout.addWidget(self.addStartMenuShortcutBox)
-
-        self.AddDesktopShortcutCheckBox = QCheckBox(TargetWidget)
-        self.AddDesktopShortcutCheckBox.setObjectName(u"AddDesktopShortcutCheckBox")
-        self.AddDesktopShortcutCheckBox.setChecked(False)
-
-        self.verticalLayout.addWidget(self.AddDesktopShortcutCheckBox)
-
         self.verticalSpacer = QSpacerItem(20, 122, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout.addItem(self.verticalSpacer)
@@ -102,7 +90,5 @@ class Ui_TargetWidget(object):
         self.targetChooser.setText(QCoreApplication.translate("TargetWidget", u"Browse...", None))
         self.warning.setText(QCoreApplication.translate("TargetWidget", u"TextLabel", None))
         self.RegisterFileCheckBox.setText(QCoreApplication.translate("TargetWidget", u"Associate *.ramses files with the Ramses Application", None))
-        self.addStartMenuShortcutBox.setText(QCoreApplication.translate("TargetWidget", u"Create start menu entry", None))
-        self.AddDesktopShortcutCheckBox.setText(QCoreApplication.translate("TargetWidget", u"Create desktop shortcut", None))
     # retranslateUi
 
