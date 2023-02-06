@@ -72,6 +72,9 @@ function showHideStartMenuPage()
     if (!component.installationRequested()) {
         installer.setDefaultPageVisible(QInstaller.StartMenuSelection, false);
     }
+    else {
+        installer.setDefaultPageVisible(QInstaller.StartMenuSelection, true);
+    }
 }
 
 function addTargetDirWidget()
