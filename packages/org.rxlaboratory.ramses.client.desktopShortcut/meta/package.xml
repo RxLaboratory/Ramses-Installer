@@ -6,6 +6,6 @@
     <ReleaseDate>2023-02-01</ReleaseDate>
     <Default>false</Default>
     <Required>false</Required>
-    <SortingPriority>30</SortingPriority>
+    <SortingPriority>1</SortingPriority>
     <Script>installscript.js</Script>
 </Package>
