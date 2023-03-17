@@ -2,6 +2,8 @@ import platform
 import os
 import subprocess
 import shutil
+import zipfile
+import xml.etree.ElementTree as ET
 
 is_win = platform.system() == 'Windows'
 is_linux = platform.system() == 'Linux'
@@ -51,6 +53,13 @@ def abs_path( rel_path ):
 def create_gitkeep( dir ):
     with open(dir + '/.gitkeep', 'w') as f:
         pass
+
+def zip_dir( dir, zip_file_handler ):
+    for root, dirs, files in os.walk(dir):
+        for file in files:
+            zip_file_handler.write(os.path.join(root, file),
+                                  os.path.join(root.replace(dir, ''), file)
+                                  )
 
 def generate_rcc():
     # Generate RCC
@@ -213,6 +222,107 @@ def create_binaries():
 
     print("<< Finished! >>")
 
+def export_client():
+
+    print("> Exporting Client")
+
+    # Get the app version
+    package_path = 'packages/org.rxlaboratory.ramses.client.app/'
+    package_file = package_path + 'meta/package.xml'
+    package_tree = ET.parse(package_file)
+    root = package_tree.getroot()
+    version = root.find('Version').text
+
+    print(">> Version: " + version)
+
+    os.makedirs('build/client/', exist_ok=True)
+
+    if is_win:
+        zip_file = 'build/client/ramses-client_' + version + '.zip'
+        with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
+            zip_dir(package_path + 'data/client/', zip)
+            zip.write('packages/org.rxlaboratory.ramses.client/meta/license.md', 'License/license.md')
+            zip.write('packages/org.rxlaboratory.ramses.client/meta/license.txt', 'License/license.txt')
+
+    print(">> Done!")
+
+def export_maya():
+
+    print("> Exporting Maya Add-on")
+
+    # Get the version
+    package_path = 'packages/org.rxlaboratory.ramses.addon.maya/'
+    package_file = package_path + 'meta/package.xml'
+    package_tree = ET.parse(package_file)
+    root = package_tree.getroot()
+    version = root.find('Version').text
+
+    print(">> Version: " + version)
+
+    os.makedirs('build/maya/', exist_ok=True)
+
+    zip_file = 'build/maya/ramses-maya_' + version + '.zip'
+    with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
+        zip_dir(package_path + 'data/maya/', zip)
+
+    print(">> Done!")
+
+def export_py():
+
+    print("> Exporting Python API")
+
+    # Get the version
+    package_path = 'packages/org.rxlaboratory.ramses.dev.py/'
+    package_file = package_path + 'meta/package.xml'
+    package_tree = ET.parse(package_file)
+    root = package_tree.getroot()
+    version = root.find('Version').text
+
+    print(">> Version: " + version)
+
+    os.makedirs('build/py/', exist_ok=True)
+
+    zip_file = 'build/py/ramses-py_' + version + '.zip'
+    with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
+        zip_dir(package_path + 'data/py/', zip)
+
+    print(">> Done!")
+
+def export_server():
+
+    print("> Exporting Server")
+
+    # Get the version
+    package_path = 'packages/org.rxlaboratory.ramses.server.standard/'
+    package_file = package_path + 'meta/package.xml'
+    package_tree = ET.parse(package_file)
+    root = package_tree.getroot()
+    version = root.find('Version').text
+
+    print(">> Version: " + version)
+
+    os.makedirs('build/server/', exist_ok=True)
+
+    zip_file = 'build/server/ramses-server_' + version + '.zip'
+    with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
+        zip_dir(package_path + 'data/server/ramses', zip)
+
+    package_path = 'packages/org.rxlaboratory.ramses.server.docker-mysql/'
+    zip_file = 'build/server/ramses-server_' + version + '_docker-mysql.zip'
+    with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
+        zip_dir(package_path + 'data/server/docker-mysql', zip)
+
+        package_path = 'packages/org.rxlaboratory.ramses.server.docker-sqlite/'
+    zip_file = 'build/server/ramses-server_' + version + '_docker-sqlite.zip'
+    with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
+        zip_dir(package_path + 'data/server/docker-sqlite', zip)
+
+    print(">> Done!")
+
 generate_rcc()
 generate_repos()
 create_binaries()
+export_client()
+export_maya()
+export_py()
+export_server()
