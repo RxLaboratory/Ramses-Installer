@@ -61,6 +61,29 @@ def zip_dir( dir, zip_file_handler ):
                                   os.path.join(root.replace(dir, ''), file)
                                   )
 
+def prepare_os():
+    for package in os.listdir('packages'):
+        package_folder = os.path.join('packages', package)
+
+        if not os.path.isdir(package_folder):
+            continue
+        data_folder_name = 'data'
+        if is_win:
+            data_folder_name = 'data-win'
+        if is_linux:
+            data_folder_name = 'data-linux'
+        if is_mac:
+            data_folder_name = 'data-mac'
+        data_os_folder = os.path.join(package_folder, data_folder_name)
+        if not os.path.isdir(data_os_folder):
+            continue
+
+        data_folder = os.path.join(package_folder, 'data')
+        if os.path.isdir(data_folder):
+            shutil.rmtree( data_folder )
+
+        shutil.copytree(data_os_folder, data_folder)
+
 def generate_rcc():
     # Generate RCC
     print("> Generating .rcc file")
@@ -319,6 +342,7 @@ def export_server():
 
     print(">> Done!")
 
+prepare_os()
 generate_rcc()
 generate_repos()
 create_binaries()

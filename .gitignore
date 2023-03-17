@@ -1,4 +1,7 @@
 packages/*/data/*
+packages/*/data-win/*
+packages/*/data-linux/*
+packages/*/data-mac/*
 build/*
 repository/**/org.rxlaboratory.*
 repository/**/Updates.xml
