@@ -2,4 +2,5 @@ packages/*/data/*
 build/*
 repository/**/org.rxlaboratory.*
 repository/**/Updates.xml
+!repository/ramses/Updates.xml
 repository/**/*_meta.7z
