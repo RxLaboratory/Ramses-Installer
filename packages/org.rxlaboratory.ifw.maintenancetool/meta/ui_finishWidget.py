@@ -50,7 +50,7 @@ class Ui_FinishWidget(object):
 
         self.label_3 = QLabel(self.widget)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setStyleSheet(u"margin-left: 20px;")
+        self.label_3.setStyleSheet(u"margin-left: 20px; margin-bottom: 20px;")
         self.label_3.setWordWrap(True)
 
         self.verticalLayout_2.addWidget(self.label_3)
@@ -62,7 +62,7 @@ class Ui_FinishWidget(object):
 
         self.label_4 = QLabel(self.widget)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setStyleSheet(u"margin-left: 20px;")
+        self.label_4.setStyleSheet(u"margin-left: 20px;  margin-bottom: 20px;")
         self.label_4.setWordWrap(True)
 
         self.verticalLayout_2.addWidget(self.label_4)

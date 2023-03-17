@@ -78,7 +78,7 @@
       <item>
        <widget class="QLabel" name="label_3">
         <property name="styleSheet">
-         <string notr="true">margin-left: 20px;</string>
+         <string notr="true">margin-left: 20px; margin-bottom: 20px;</string>
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;You’re a company or a freelance professional&lt;/span&gt;, you’re being paid for your work, &lt;span style=&quot; font-weight:700;&quot;&gt;you have to contribute before using our tools&lt;/span&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -98,7 +98,7 @@
       <item>
        <widget class="QLabel" name="label_4">
         <property name="styleSheet">
-         <string notr="true">margin-left: 20px;</string>
+         <string notr="true">margin-left: 20px;  margin-bottom: 20px;</string>
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;You’re a student or a teacher, you work for a non-profit organization, you’re a hobbyist&lt;/span&gt;, your donation is not mandatory but is still much needed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
