@@ -1,0 +1,8 @@
+<Updates>
+ <ApplicationName>{AnyApplication}</ApplicationName>
+ <ApplicationVersion>1.0.0</ApplicationVersion>
+ <Checksum>true</Checksum>
+ <RepositoryUpdate>
+    <Repository action="add" url="win" displayname="Ramses for Windows" />
+ </RepositoryUpdate>
+</Updates>
