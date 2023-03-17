@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Installer>
-    <Name>Ramses</Name>
+    <Name>Ramses for Windows</Name>
     <Title>Ramses</Title>
     <Version>0.8.x</Version>
     <Publisher>RxLaboratory</Publisher>
@@ -26,7 +26,7 @@
     </ProductImages>
     <RemoteRepositories>
         <Repository>
-            <Url>https://repo.rxlab.io/ramses</Url>
+            <Url>https://repo.rxlab.io/ramses/win</Url>
             <Enabled>1</Enabled>
             <DisplayName>RxLaboratory</DisplayName>
         </Repository>

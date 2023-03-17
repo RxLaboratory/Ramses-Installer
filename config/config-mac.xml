@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>Ramses</Name>
+    <Title>Ramses</Title>
+    <Version>0.8.x</Version>
+    <Publisher>RxLaboratory</Publisher>
+    <ProductUrl>https://rxlaboratory.org/tools/ramses/</ProductUrl>
+    <TargetDir>@HomeDir@/RxLaboratory/Ramses</TargetDir>
+    <AdminTargetDir>@ApplicationsDir@/RxLaboratory/Ramses</AdminTargetDir>
+    <RunProgram>@TargetDir@/client/ramses</RunProgram>
+    <InstallerApplicationIcon>ramses_install</InstallerApplicationIcon>
+    <InstallerWindowIcon>ramses_install.png</InstallerWindowIcon>
+    <WizardShowPageList>true</WizardShowPageList>
+    <WizardStyle>Modern</WizardStyle>
+    <!--<StyleSheet>style.qss</StyleSheet>-->
+    <WizardDefaultHeight>800</WizardDefaultHeight>
+    <WizardDefaultWidth>960</WizardDefaultWidth>
+    <ControlScript>controlscript.js</ControlScript>
+    <RemoveTargetDir>false</RemoveTargetDir>
+    <Banner>ramses_banner.png</Banner>
+    <ProductImages>
+        <ProductImage>
+            <Image>product_rxot.png</Image>
+            <Url>http://rxlaboratory.org</Url>
+        </ProductImage>
+    </ProductImages>
+    <RemoteRepositories>
+        <Repository>
+            <Url>https://repo.rxlab.io/ramses/mac</Url>
+            <Enabled>1</Enabled>
+            <DisplayName>RxLaboratory</DisplayName>
+        </Repository>
+    </RemoteRepositories>
+</Installer>

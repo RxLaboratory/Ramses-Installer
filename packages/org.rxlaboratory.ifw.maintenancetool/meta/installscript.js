@@ -2,22 +2,30 @@ var targetDirectoryPage = null;
 var maintenanceToolName = "";
 var finishWidget = null;
 var doRunMaintenanceTool = false;
+var isWin = systemInfo.kernelType == "winnt";
+var isMac = systemInfo.kernelType == "darwin";
+var isLinux = systemInfo.kernelType == "linux";
 
 function Component()
 {
     installer.installationStarted.connect(this, Component.prototype.onInstallationStarted);
 
-    setupUi();    
-    maintenanceToolName = installer.value("MaintenanceToolName") + ".exe";
+    setupUi();
+    setupComponents();
+    maintenanceToolName = installer.value("MaintenanceToolName")
+    if (isWin) maintenanceToolName += ".exe";
 }
 
 // Set the installerbase to use
 Component.prototype.onInstallationStarted = function()
 {
     if (component.updateRequested() || component.installationRequested()) {
-        if (installer.value("os") == "win") {
+        if (isWin) {
             component.installerbaseBinaryPath = "@TargetDir@/installerbase.exe";
-        } else if (installer.value("os") == "x11") {
+        } else {
+            component.installerbaseBinaryPath = "@TargetDir@/installerbase";
+        }
+        /*} else if (installer.value("os") == "x11") {
             component.installerbaseBinaryPath = "@TargetDir@/installerbase";
         } else if (installer.value("os") == "mac") {
             // In macOs maintenance tool can be either installerbase from Qt Installer
@@ -29,7 +37,7 @@ Component.prototype.onInstallationStarted = function()
 
             // component.installerbaseBinaryPath = "@TargetDir@/installerbase";
             component.installerbaseBinaryPath = "@TargetDir@/MaintenanceTool.app";
-        }
+        }*/
         installer.setInstallerBaseBinary(component.installerbaseBinaryPath);
 
         var updateResourceFilePath = installer.value("TargetDir") + "/update.rcc";
@@ -64,16 +72,28 @@ function setupUi()
     }
 }
 
+function setupComponents()
+{
+    var components = installer.components( ".+\\.desktopShortcut$" );
+    components = components.concat( installer.components( ".+\\.startMenuShortcut$" ) );
+    for (var i = 0; i < components.length; i++) {
+        components[i].enabled = isWin;
+    }
+}
+
 function showHideStartMenuPage()
 {
-    // Hide the start menu selection if we're not installing the start menu shortcut
-    var component = installer.componentByName("org.rxlaboratory.ramses.client.startMenuShortcut");
+    installer.setDefaultPageVisible(QInstaller.StartMenuSelection, false);
+    if (!isWin) return;
 
-    if (!component.installationRequested()) {
-        installer.setDefaultPageVisible(QInstaller.StartMenuSelection, false);
-    }
-    else {
-        installer.setDefaultPageVisible(QInstaller.StartMenuSelection, true);
+    // Hide the start menu selection if we're not installing the start menu shortcut
+    var components = installer.components( ".+\\.startMenuShortcut$" );
+    for (var i = 0; i < components.length; i++)
+    {
+        if ( components[i].installationRequested() ) {
+            installer.setDefaultPageVisible(QInstaller.StartMenuSelection, true);
+            return;
+        }
     }
 }
 
@@ -189,5 +209,6 @@ function contribute()
 
 function prepareInstallation()
 {
-    installer.setValue("registerFileType", targetDirectoryPage.RegisterFileCheckBox.checked);
+    if (isWin) installer.setValue("registerFileType", targetDirectoryPage.RegisterFileCheckBox.checked);
+    else installer.setValue("registerFileType", false);
 }

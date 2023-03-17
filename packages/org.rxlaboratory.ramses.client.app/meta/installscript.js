@@ -1,3 +1,7 @@
+var isWin = systemInfo.kernelType == "winnt";
+var isMac = systemInfo.kernelType == "darwin";
+var isLinux = systemInfo.kernelType == "linux";
+
 function Component()
 {
     
@@ -11,7 +15,7 @@ Component.prototype.createOperations = function()
     component.createOperations();
 
     // Windows
-    if (systemInfo.productType === "windows") {
+    if (isWin) {
         if (installer.isInstaller()) {
             var registerFile = installer.value("registerFileType", true);
     
@@ -31,8 +35,18 @@ Component.prototype.createOperations = function()
 
         }
     }
-
-    
+    else if (isLinux) {
+        component.addOperation("CreateDesktopEntry",
+            "@HomeDir@/.local/share/applications/Ramses.desktop",
+            "Type=Application\n" +
+            "Name=Ramses\n" +
+            "GenericName=Asset and Production Manager\n" +
+            "Comment=The Rx Asset Management System, asset management and production tracking.\n" +
+            "Exec=@TargetDir@/client/ramses\n" +
+            "Icon=@TargetDir@/client/ramses.png\n" +
+            "Categories=AudioVideo;ProjectManagement;Qt"
+        );
+    }
 }
 
 function _a(text)
