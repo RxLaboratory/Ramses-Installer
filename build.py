@@ -213,6 +213,6 @@ def create_binaries():
 
     print("<< Finished! >>")
 
-#generate_rcc()
+generate_rcc()
 generate_repos()
 create_binaries()
