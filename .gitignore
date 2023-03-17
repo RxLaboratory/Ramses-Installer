@@ -1,3 +1,5 @@
 packages/*/data/*
 build/*
-repository/*
+repository/win/*
+repository/linux/*
+repository/mac/*
