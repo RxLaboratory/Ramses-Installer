@@ -140,9 +140,9 @@ def generate_repos():
 
     new_xml = [
         '<RepositoryUpdate>',
-        '<Repository action="add" url="common" displayname="Ramses Common Components" />']
+        '<Repository action="add" url="../common" displayname="Ramses Common Components" />']
     if is_win:
-        new_xml.append('<Repository action="add" url="../ifw/win" displayname="RxLaboratory Maintenance Tool for Windows" />')
+        new_xml.append('<Repository action="add" url="../../ifw/win" displayname="RxLaboratory Maintenance Tool for Windows" />')
     new_xml.append('</RepositoryUpdate>')
     new_xml.append('</Updates>')
 
