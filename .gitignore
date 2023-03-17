@@ -1,5 +1,5 @@
 packages/*/data/*
 build/*
-repository/*/org.rxlaboratory.*
-repository/*/Updates.xml
-repository/*/*_meta.7z
+repository/**/org.rxlaboratory.*
+repository/**/Updates.xml
+repository/**/*_meta.7z
