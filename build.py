@@ -144,7 +144,7 @@ def generate_repos():
     if is_win:
         new_xml.append('<Repository action="add" url="../ifw/win" displayname="RxLaboratory Maintenance Tool for Windows" />')
     new_xml.append('</RepositoryUpdate>')
-    new_xml.append('</updates>')
+    new_xml.append('</Updates>')
 
     xml_content = xml_content.replace('</Updates>','\n'.join(new_xml))
 
