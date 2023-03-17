@@ -1,5 +1,5 @@
 packages/*/data/*
 build/*
-repository/win/*
-repository/linux/*
-repository/mac/*
+repository/*/org.rxlaboratory.*
+repository/*/Updates.xml
+repository/*/*_meta.7z
