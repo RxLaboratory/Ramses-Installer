@@ -42,8 +42,8 @@ Component.prototype.createOperations = function()
             "Name=Ramses\n" +
             "GenericName=Asset and Production Manager\n" +
             "Comment=The Rx Asset Management System, asset management and production tracking.\n" +
-            "Exec=@TargetDir@/client/ramses\n" +
-            "Icon=@TargetDir@/client/ramses.png\n" +
+            "Exec=@TargetDir@/client/bin/ramses\n" +
+            "Icon=@TargetDir@/ramses.png\n" +
             "Categories=AudioVideo;ProjectManagement;Qt"
         );
     }
