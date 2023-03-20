@@ -40,14 +40,21 @@ if is_mac:
 def get_ifw_path():
     if is_win:
         return 'C:/Qt/Tools/QtInstallerFramework/4.5/bin/'
+    if is_linux or is_mac:
+        return '~/Qt/Tools/QtInstallerFramework/4.5/bin/'
 
 def get_binary_creator():
     if is_win:
         return get_ifw_path() + 'binarycreator.exe'
+    if is_linux or is_mac:
+        return get_ifw_path() + 'binarycreator'
+    
     
 def get_repogen():
     if is_win:
         return get_ifw_path() + 'repogen.exe'
+    if is_linux or is_mac:
+        return get_ifw_path() + 'repogen'
 
 def abs_path( rel_path ):
     return os.path.abspath(
@@ -508,11 +515,11 @@ def export_server():
 
     print(">> Done!")
 
-#prepare_os()
-#deploy_client_app()
-#generate_rcc()
-#generate_repos()
-#create_binaries()
+prepare_os()
+deploy_client_app()
+generate_rcc()
+generate_repos()
+create_binaries()
 export_client()
 #export_maya()
 #export_py()
