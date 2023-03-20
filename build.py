@@ -41,7 +41,7 @@ def get_ifw_path():
     if is_win:
         return 'C:/Qt/Tools/QtInstallerFramework/4.5/bin/'
     if is_linux or is_mac:
-        return '~/Qt/Tools/QtInstallerFramework/4.5/bin/'
+        return os.path.expanduser('~/Qt/Tools/QtInstallerFramework/4.5/bin/')
 
 def get_binary_creator():
     if is_win:
