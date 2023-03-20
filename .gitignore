@@ -1,8 +1,13 @@
+# bin tools
+tools/*
+# package data
 packages/*/data/*
 packages/*/data-win/*
 packages/*/data-linux/*
 packages/*/data-mac/*
+# build result
 build/*
+# repository files
 repository/**/org.rxlaboratory.*
 repository/**/Updates.xml
 !repository/ramses/Updates.xml
