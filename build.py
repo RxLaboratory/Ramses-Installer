@@ -236,6 +236,11 @@ def generate_repos():
 
     print(">> Ramses Common Components")
     package_list.append( 'org.rxlaboratory.ifw.maintenancetool' )
+    if not is_win:
+        package_list = package_list + [
+            'org.rxlaboratory.ramses.client.desktopShortcut',
+            'org.rxlaboratory.ramses.client.startMenuShortcut'
+        ]
 
     bin_args = [
         get_repogen(),
