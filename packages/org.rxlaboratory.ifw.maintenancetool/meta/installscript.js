@@ -45,26 +45,6 @@ Component.prototype.onInstallationStarted = function()
     }
 }
 
-Component.prototype.createOperations = function()
-{
-    if (isLinux)
-    {
-        var maintenancePath = "@TargetDir@\\" + installer.value("MaintenanceToolName") + ".exe";
-
-        component.addOperation("CreateDesktopEntry",
-            "@HomeDir@/.local/share/applications/Ramses Maintenance Tool.desktop",
-            "Type=Application\n" +
-            "Name=Ramses Maintenance Tool\n" +
-            "GenericName=Maintenance tool\n" +
-            "Comment=Add, Update or Remove Ramses components.\n" +
-            "Exec=" + maintenancePath + "\n" +
-            "Icon=@TargetDir@/ramses-maintenance.png\n" +
-            "Categories=AudioVideo;ProjectManagement;Qt"
-        );
-    }
-    
-}
-
 function _a(text)
 {
     QMessageBox.information(

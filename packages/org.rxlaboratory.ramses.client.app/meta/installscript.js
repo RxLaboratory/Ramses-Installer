@@ -36,6 +36,9 @@ Component.prototype.createOperations = function()
         }
     }
     else if (isLinux) {
+
+        var maintenancePath = "@TargetDir@/" + installer.value("MaintenanceToolName");
+
         component.addOperation("CreateDesktopEntry",
             "@HomeDir@/.local/share/applications/Ramses.desktop",
             "Type=Application\n" +
@@ -44,6 +47,17 @@ Component.prototype.createOperations = function()
             "Comment=The Rx Asset Management System, asset management and production tracking.\n" +
             "Exec=@TargetDir@/client/bin/ramses\n" +
             "Icon=@TargetDir@/ramses.png\n" +
+            "Categories=AudioVideo;ProjectManagement;Qt"
+        );
+
+        component.addOperation("CreateDesktopEntry",
+            "@HomeDir@/.local/share/applications/Ramses Maintenance Tool.desktop",
+            "Type=Application\n" +
+            "Name=Ramses Maintenance Tool\n" +
+            "GenericName=Maintenance tool\n" +
+            "Comment=Add, Update or Remove Ramses components.\n" +
+            "Exec=" + maintenancePath + "\n" +
+            "Icon=@TargetDir@/ramses_install.png\n" +
             "Categories=AudioVideo;ProjectManagement;Qt"
         );
     }

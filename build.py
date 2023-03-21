@@ -185,7 +185,7 @@ def deploy_client_app():
             os.remove(icon_file)
         shutil.copy( os.path.join(data_folder, 'client/share/icons/hicolor/128x128/apps/ramses.png'),
                     icon_file )
-        
+               
         # Remove the desktop file
         desktop_file = os.path.join(data_folder, 'Ramses.desktop')
         if os.path.isfile(desktop_file):
