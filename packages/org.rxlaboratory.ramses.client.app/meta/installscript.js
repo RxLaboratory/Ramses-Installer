@@ -46,7 +46,7 @@ Component.prototype.createOperations = function()
             "GenericName=Asset and Production Manager\n" +
             "Comment=The Rx Asset Management System, asset management and production tracking.\n" +
             "Exec=@TargetDir@/client/bin/ramses\n" +
-            "Icon=@TargetDir@/ramses.png\n" +
+            "Icon=ramses\n" +
             "Categories=AudioVideo;ProjectManagement;Qt"
         );
 
@@ -57,8 +57,12 @@ Component.prototype.createOperations = function()
             "GenericName=Maintenance tool\n" +
             "Comment=Add, Update or Remove Ramses components.\n" +
             "Exec=" + maintenancePath + "\n" +
-            "Icon=@TargetDir@/ramses_install.png\n" +
+            "Icon=ramses-maintenancetool\n" +
             "Categories=AudioVideo;ProjectManagement;Qt"
+        );
+
+        component.addOperation("InstallIcons",
+            "@TargetDir@/client/share/icons"
         );
     }
 }

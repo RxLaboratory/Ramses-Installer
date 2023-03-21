@@ -190,6 +190,7 @@ def deploy_client_app():
         desktop_file = os.path.join(data_folder, 'Ramses.desktop')
         if os.path.isfile(desktop_file):
             os.remove(desktop_file)
+
     if is_mac:
         print(">> Deploying...")
 
@@ -200,8 +201,6 @@ def deploy_client_app():
 
         bin_process = subprocess.Popen( bin_args, cwd=abs_path(data_folder) )
         bin_process.communicate()
-
-
 
     print(">> Done!")
 
@@ -550,8 +549,8 @@ def export_server():
 
     print(">> Done!")
 
-#prepare_os()
-#deploy_client_app()
+prepare_os()
+deploy_client_app()
 #generate_rcc()
 #generate_repos()
 create_binaries()
