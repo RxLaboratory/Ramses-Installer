@@ -3,6 +3,7 @@ import os
 import subprocess
 import shutil
 import zipfile
+import tarfile
 import xml.etree.ElementTree as ET
 import tempfile
 
@@ -407,7 +408,7 @@ def create_binaries():
 
     print(">> Done!")
 
-def export_client( appimage=True, deb=True):
+def export_client( appimage=True, deb=True, tgz=True):
 
     print("> Exporting Client")
 
@@ -435,6 +436,11 @@ def export_client( appimage=True, deb=True):
             with tempfile.TemporaryDirectory() as tmpdata_folder:
                 print(">> Creating temp data in " + tmpdata_folder)
 
+                # AppRun may cause problems
+                apprun = os.path.join(data_folder, 'AppRun')
+                if os.path.isfile(apprun):
+                    os.remove( apprun )
+
                 # copy data to the tmpfolder
                 shutil.rmtree( tmpdata_folder )
                 shutil.copytree( data_folder, tmpdata_folder)
@@ -461,7 +467,10 @@ def export_client( appimage=True, deb=True):
                 bin_process.communicate()
 
                 # Move the Appimage to the build folder
-                os.replace( 'Ramses-x86_64.AppImage', 'build/client/ramses-client_' + version + '-x86_64.AppImage' )
+                for f in os.listdir():
+                    if f.startswith('Ramses') and f.endswith('x86_64.AppImage'):
+                        os.replace( f, 'build/client/ramses-client_' + version + '-x86_64.AppImage' )
+                        break
 
         # Build .deb
         # in a temp folder
@@ -511,6 +520,16 @@ def export_client( appimage=True, deb=True):
                     os.path.join(tmpdata_folder, 'ramses.deb'),
                     'build/client/ramses-client_' + version + '-amd64.deb'
                     )
+
+        # Generate tgz  
+        if tgz:
+            print(">> Exporting .tar.gz...")
+            client_path = os.path.join(data_folder, 'client')
+            with tarfile.open('build/client/ramses-client_' + version + '.tar.gz', "w:gz") as tar:
+                for filename in os.listdir(client_path):
+                    p = os.path.join(client_path, filename)
+                    tar.add(p, arcname=filename)
+
     
     if is_mac:
         print(">> Exporting .dmg...")
@@ -594,11 +613,11 @@ def export_server():
 
     print(">> Done!")
 
-prepare_os()
-deploy_client_app()
-generate_rcc()
-generate_repos()
-create_binaries()
+#prepare_os()
+#deploy_client_app()
+#generate_rcc()
+#generate_repos()
+#create_binaries()
 export_client()
 #export_maya()
 #export_py()
