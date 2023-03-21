@@ -28,7 +28,12 @@
         <Repository>
             <Url>https://repo.rxlab.io/ramses/linux</Url>
             <Enabled>1</Enabled>
-            <DisplayName>RxLaboratory</DisplayName>
+            <DisplayName>RxLaboratory - Ramses</DisplayName>
+        </Repository>
+        <Repository>
+            <Url>https://repo.rxlab.io/ifw/linux</Url>
+            <Enabled>1</Enabled>
+            <DisplayName>RxLaboratory - Maintenance Tool</DisplayName>
         </Repository>
     </RemoteRepositories>
 </Installer>
