@@ -16,7 +16,7 @@ Component.prototype.createOperations = function()
 
             var ramsesPath = "@TargetDir@\\client\\ramses.exe";
             var maintenancePath = "@TargetDir@\\" + installer.value("MaintenanceToolName") + ".exe";
-                   
+
             console.log("Creating start menu shortcut.");
             component.addOperation("CreateShortcut",
                                     ramsesPath,

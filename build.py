@@ -178,7 +178,19 @@ def deploy_client_app():
         
         # Rename the usr folder to "client"
         os.rename( os.path.join(data_folder, 'usr'), os.path.join(data_folder, 'client'))
-             
+
+        # Use a bigger icon!
+        icon_file = os.path.join(data_folder, "ramses.png")
+        if os.path.isfile(icon_file):
+            os.remove(icon_file)
+        shutil.copy( os.path.join(data_folder, 'client/share/icons/hicolor/128x128/apps/ramses.png'),
+                    icon_file )
+        
+        # Remove the desktop file
+        desktop_file = os.path.join(data_folder, 'Ramses.desktop')
+        if os.path.isfile(desktop_file):
+            os.remove(desktop_file)
+
     print(">> Done!")
 
 def generate_rcc():
@@ -345,8 +357,6 @@ def create_binaries():
 
     print(">> Done!")
 
-    print("<< Finished! >>")
-
 def export_client( appimage=True, deb=True):
 
     print("> Exporting Client")
@@ -452,8 +462,6 @@ def export_client( appimage=True, deb=True):
                     'build/client/ramses-client_' + version + '-amd64.deb'
                     )
                 
-                shutil.copytree( tmpdata_folder, '/home/duduf/Documents/test')
-
     print(">> Done!")
 
 def export_maya():
@@ -529,3 +537,5 @@ export_client()
 #export_maya()
 #export_py()
 #export_server()
+
+print("<< Finished! >>")
