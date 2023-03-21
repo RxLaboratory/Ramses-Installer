@@ -4,7 +4,7 @@ var isLinux = systemInfo.kernelType == "linux";
 
 function Component()
 {
-    
+    installer.installationFinished.connect(this, Component.prototype.installationFinishedPageIsShown);
 }
 
 // Here we are creating the operation chain which will be processed at the real installation part later
@@ -63,6 +63,35 @@ Component.prototype.createOperations = function()
             "Exec=" + maintenancePath + "\n" +
             "Icon=ramses-maintenancetool\n" +
             "Categories=AudioVideo;ProjectManagement;Qt"
+        );
+    }
+}
+
+Component.prototype.installationFinishedPageIsShown = function()
+{
+    if (isMac && installer.isInstaller() && installer.status == QInstaller.Success) {
+        // Set the dir icon
+        installer.executeDetached(
+            "bash",
+            ["-c", "@TargetDir@/set_folder_icon.sh"],
+            installer.value("TargetDir")
+        )
+        // Set the maintenance tool icon
+        installer.performOperation(
+            "Move",
+            [
+                "@TargetDir@/ramses-maintenancetool.icns",
+                "@TargetDir@/Ramses Maintenance Tool.app/Contents/Resources/ramses-maintenancetool.icns"
+            ]
+        );
+        installer.performOperation(
+            "Replace",
+            [
+                "@TargetDir@/Ramses Maintenance Tool.app/Contents/Info.plist",
+                "</dict>",
+                "\t<key>CFBundleIconFile</key>\n\t<string>ramses-maintenancetool.icns</string>\n</dict>",
+                "string"
+            ]
         );
     }
 }

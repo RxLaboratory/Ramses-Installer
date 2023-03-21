@@ -360,6 +360,51 @@ def create_binaries():
     bin_process = subprocess.Popen( bin_args )
     bin_process.communicate()
 
+    if is_mac:
+        print(">> Setting icon...")
+        shutil.copy(
+            'config/ramses-maintenancetool.icns',
+            os.path.join(online_path, 'Contents/Resources/ramses-maintenancetool.icns')
+        )
+        shutil.copy(
+            'config/ramses-maintenancetool.icns',
+            os.path.join(offline_path, 'Contents/Resources/ramses-maintenancetool.icns')
+        )
+        replace_in_file(
+            {"</dict>": "\t<key>CFBundleIconFile</key>\n\t<string>ramses-maintenancetool.icns</string>\n</dict>"},
+            os.path.join(offline_path, 'Contents/Info.plist')
+        )
+        replace_in_file(
+            {"</dict>": "\t<key>CFBundleIconFile</key>\n\t<string>ramses-maintenancetool.icns</string>\n</dict>"},
+            os.path.join(online_path, 'Contents/Info.plist')
+        )
+        print(">> Creating .dmg images...")
+        offline_dmg = offline_path.replace(".app", ".dmg")
+        online_dmg = online_path.replace(".app", ".dmg")
+        if os.path.isfile(offline_dmg):
+            os.remove(offline_dmg)
+        if os.path.isfile(online_dmg):
+            os.remove(online_dmg)
+        bin_args =[
+            'hdiutil',
+            'create',
+            '-srcfolder', abs_path(online_path),
+            abs_path( online_path.replace(".app", ".dmg"))
+        ]
+        bin_process = subprocess.Popen( bin_args )
+        bin_process.communicate()
+        bin_args =[
+            'hdiutil',
+            'create',
+            '-srcfolder', abs_path(offline_path),
+            abs_path( offline_path.replace(".app", ".dmg"))
+        ]
+        bin_process = subprocess.Popen( bin_args )
+        bin_process.communicate()
+
+        shutil.rmtree( online_path )
+        shutil.rmtree( offline_path )
+
     print(">> Done!")
 
 def export_client( appimage=True, deb=True):
@@ -551,10 +596,10 @@ def export_server():
 
 prepare_os()
 deploy_client_app()
-#generate_rcc()
-#generate_repos()
+generate_rcc()
+generate_repos()
 create_binaries()
-#export_client()
+export_client()
 #export_maya()
 #export_py()
 #export_server()

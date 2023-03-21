@@ -14,6 +14,7 @@ function Component()
     setupComponents();
     maintenanceToolName = installer.value("MaintenanceToolName")
     if (isWin) maintenanceToolName += ".exe";
+    if (isMac) maintenanceToolName += ".app";
 }
 
 // Set the installerbase to use
@@ -26,7 +27,7 @@ Component.prototype.onInstallationStarted = function()
             component.installerbaseBinaryPath = "@TargetDir@/installerbase";
         }
         else {
-            component.installerbaseBinaryPath = "@TargetDir@/" + maintenanceToolName + ".app";
+            component.installerbaseBinaryPath = "@TargetDir@/" + maintenanceToolName;
         }
 
         installer.setInstallerBaseBinary(component.installerbaseBinaryPath);
@@ -174,7 +175,7 @@ function runMaintenanceTool()
 
     var dir = installer.value("TargetDir");
     if (installer.fileExists(dir) && installer.fileExists(dir + "/" + maintenanceToolName)) {
-        installer.executeDetached(dir + "/" + maintenanceToolName, ["--start-uninstaller"] /*["purge", "-c"]*/);
+        installer.executeDetached(dir + "/" + maintenanceToolName + "/Contents/MacOS/" + maintenanceToolName.replace(".app", ""), ["--start-uninstaller"] /*["purge", "-c"]*/);
     }
     else {
         QMessageBox.warning("maintenanceToolNotFound", "Maintenance Tool", "The Maintenance Tool can't be found.");
