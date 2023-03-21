@@ -38,6 +38,10 @@ Component.prototype.createOperations = function()
     else if (isLinux) {
 
         var maintenancePath = "@TargetDir@/" + installer.value("MaintenanceToolName");
+        
+        component.addOperation("InstallIcons",
+            "@TargetDir@/client/share/icons"
+        );
 
         component.addOperation("CreateDesktopEntry",
             "@HomeDir@/.local/share/applications/Ramses.desktop",
@@ -59,10 +63,6 @@ Component.prototype.createOperations = function()
             "Exec=" + maintenancePath + "\n" +
             "Icon=ramses-maintenancetool\n" +
             "Categories=AudioVideo;ProjectManagement;Qt"
-        );
-
-        component.addOperation("InstallIcons",
-            "@TargetDir@/client/share/icons"
         );
     }
 }

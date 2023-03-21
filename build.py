@@ -343,8 +343,8 @@ def create_binaries():
 
     bin_args.append( abs_path(offline_path) )
     
-    #bin_process = subprocess.Popen( bin_args )
-    #bin_process.communicate()
+    bin_process = subprocess.Popen( bin_args )
+    bin_process.communicate()
 
     print(">> Online...")
 
