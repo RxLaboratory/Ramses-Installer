@@ -11,6 +11,7 @@ is_linux = platform.system() == 'Linux'
 is_mac = platform.system() == 'Darwin'
 
 linuxdeployqt_bin = 'tools/linuxdeployqt-6-x86_64.AppImage'
+macdeployqt_bin = '~/Qt/5.15.2/clang_64/bin/macdeployqt'
 qmake_path = '~/Qt/5.12.5/gcc_64/bin/qmake'
 
 this_dir = os.path.dirname(os.path.abspath(__file__)) + '/'
@@ -48,8 +49,7 @@ def get_binary_creator():
         return get_ifw_path() + 'binarycreator.exe'
     if is_linux or is_mac:
         return get_ifw_path() + 'binarycreator'
-    
-    
+
 def get_repogen():
     if is_win:
         return get_ifw_path() + 'repogen.exe'
@@ -190,6 +190,18 @@ def deploy_client_app():
         desktop_file = os.path.join(data_folder, 'Ramses.desktop')
         if os.path.isfile(desktop_file):
             os.remove(desktop_file)
+    if is_mac:
+        print(">> Deploying...")
+
+        bin_args = [
+            os.path.expanduser( macdeployqt_bin ),
+            'Ramses.app'
+        ]
+
+        bin_process = subprocess.Popen( bin_args, cwd=abs_path(data_folder) )
+        bin_process.communicate()
+
+
 
     print(">> Done!")
 
@@ -315,8 +327,8 @@ def create_binaries():
         offline_path = offline_path + 'Ramses_Offline-Installer'
         online_path = online_path + 'Ramses_Online-Installer'
     if is_mac:
-        offline_path = offline_path + 'Ramses_Offline-Installer'
-        online_path = online_path + 'Ramses_Online-Installer'
+        offline_path = offline_path + 'Ramses_Offline-Installer.app'
+        online_path = online_path + 'Ramses_Online-Installer.app'
 
     print(">> Offline...")
 
@@ -330,13 +342,10 @@ def create_binaries():
         '--compression', '9'
     ]
 
-    if (is_mac):
-        bin_args.append('-dmg')
-
     bin_args.append( abs_path(offline_path) )
     
-    bin_process = subprocess.Popen( bin_args )
-    bin_process.communicate()
+    #bin_process = subprocess.Popen( bin_args )
+    #bin_process.communicate()
 
     print(">> Online...")
 
@@ -346,9 +355,6 @@ def create_binaries():
         '-p', abs_path('packages'),
         '--online-only'
     ]
-
-    if (is_mac):
-        bin_args.append('-dmg')
 
     bin_args.append( abs_path(online_path) )
 
@@ -461,7 +467,23 @@ def export_client( appimage=True, deb=True):
                     os.path.join(tmpdata_folder, 'ramses.deb'),
                     'build/client/ramses-client_' + version + '-amd64.deb'
                     )
-                
+    
+    if is_mac:
+        print(">> Exporting .dmg...")
+        # Generate a dmg
+        bin_args = [
+            os.path.expanduser( macdeployqt_bin ),
+            'Ramses.app', '-dmg'
+        ]
+
+        bin_process = subprocess.Popen( bin_args, cwd=abs_path(data_folder) )
+        bin_process.communicate()
+
+        os.rename(
+            os.path.join(data_folder, 'Ramses.dmg'),
+            os.path.join('build/client/ramses-client_' + version + '.dmg')
+            )
+
     print(">> Done!")
 
 def export_maya():
@@ -528,12 +550,12 @@ def export_server():
 
     print(">> Done!")
 
-prepare_os()
-deploy_client_app()
-generate_rcc()
-generate_repos()
+#prepare_os()
+#deploy_client_app()
+#generate_rcc()
+#generate_repos()
 create_binaries()
-export_client()
+#export_client()
 #export_maya()
 #export_py()
 #export_server()

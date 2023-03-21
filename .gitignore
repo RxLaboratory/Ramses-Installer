@@ -1,5 +1,7 @@
 # Mac crap
 .DS_Store
+# Syncthing crap
+*.sync-conflict-*
 # bin tools
 tools/*
 # package data
