@@ -613,14 +613,14 @@ def export_server():
 
     print(">> Done!")
 
-#prepare_os()
+prepare_os()
 #deploy_client_app()
-#generate_rcc()
-#generate_repos()
-#create_binaries()
-export_client()
-#export_maya()
-#export_py()
+generate_rcc()
+generate_repos()
+create_binaries()
+#export_client()
+export_maya()
+export_py()
 #export_server()
 
 print("<< Finished! >>")

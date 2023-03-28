@@ -2,8 +2,8 @@
 <Package>
     <DisplayName>Autodesk Maya Module</DisplayName>
     <Description>This Module fully integrates Ramses in Autodesk Maya.</Description>
-    <Version>0.8.14</Version>
-    <ReleaseDate>2023-03-16</ReleaseDate>
+    <Version>0.8.15</Version>
+    <ReleaseDate>2023-03-28</ReleaseDate>
     <Default>false</Default>
     <Required>false</Required>
     <Licenses>
