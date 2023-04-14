@@ -226,37 +226,38 @@ def generate_rcc():
     # print(">> " + str(output[1]))
     print(">> Done!")
 
-def generate_repos():
+def generate_repos( common_only=False ):
     # Generate repos
     print("> Updating the repositories...")
 
     shutil.rmtree(abs_path(ramses_common_repo))
-    shutil.rmtree(abs_path(ramses_os_repo))
-    shutil.rmtree(abs_path(ifw_repo))
-
-    print(">> Ramses App")
+    if not common_only:
+        shutil.rmtree(abs_path(ramses_os_repo))
+        shutil.rmtree(abs_path(ifw_repo))
 
     package_list = [
         'org.rxlaboratory.ramses.client',
         'org.rxlaboratory.ramses.client.app'
         ]
-
     if is_win:
         package_list = package_list + [
             'org.rxlaboratory.ramses.client.desktopShortcut',
             'org.rxlaboratory.ramses.client.startMenuShortcut'
         ]
 
-    bin_args = [
-        get_repogen(),
-        '-p', 'packages',
-        '-i', ','.join(package_list),
-        '--compression', '9',
-        abs_path(ramses_os_repo)
-    ]
+    if not common_only:
+        print(">> Ramses App")
 
-    bin_process = subprocess.Popen( bin_args )
-    bin_process.communicate()
+        bin_args = [
+            get_repogen(),
+            '-p', 'packages',
+            '-i', ','.join(package_list),
+            '--compression', '9',
+            abs_path(ramses_os_repo)
+        ]
+
+        bin_process = subprocess.Popen( bin_args )
+        bin_process.communicate()
 
     print(">> Ramses Common Components")
     package_list.append( 'org.rxlaboratory.ifw.maintenancetool' )
@@ -277,41 +278,43 @@ def generate_repos():
     bin_process = subprocess.Popen( bin_args )
     bin_process.communicate()
 
-    print(">> Maintenance Tool")
+    if not common_only:
+        print(">> Maintenance Tool")
 
-    bin_args = [
-        get_repogen(),
-        '-p', 'packages',
-        '-i', 'org.rxlaboratory.ifw.maintenancetool',
-        '--compression', '9',
-        abs_path(ifw_repo)
-    ]
+        bin_args = [
+            get_repogen(),
+            '-p', 'packages',
+            '-i', 'org.rxlaboratory.ifw.maintenancetool',
+            '--compression', '9',
+            abs_path(ifw_repo)
+        ]
 
-    bin_process = subprocess.Popen( bin_args )
-    bin_process.communicate()
+        bin_process = subprocess.Popen( bin_args )
+        bin_process.communicate()
 
-    print(">> Update Updates.xml")
+    if not common_only:
+        print(">> Update Updates.xml")
+        xml_content = ""
+        with open(ramses_os_repo + '/Updates.xml', 'r', encoding='utf8') as xml_file:
+            xml_content = xml_file.read()
 
-    xml_content = ""
-    with open(ramses_os_repo + '/Updates.xml', 'r', encoding='utf8') as xml_file:
-        xml_content = xml_file.read()
+        new_xml = [
+            '<RepositoryUpdate>',
+            '<Repository action="add" url="../common" displayname="Ramses Common Components" />']
+        if is_win:
+            new_xml.append('<Repository action="add" url="../../ifw/win" displayname="RxLaboratory Maintenance Tool for Windows" />')
+        new_xml.append('</RepositoryUpdate>')
+        new_xml.append('</Updates>')
 
-    new_xml = [
-        '<RepositoryUpdate>',
-        '<Repository action="add" url="../common" displayname="Ramses Common Components" />']
-    if is_win:
-        new_xml.append('<Repository action="add" url="../../ifw/win" displayname="RxLaboratory Maintenance Tool for Windows" />')
-    new_xml.append('</RepositoryUpdate>')
-    new_xml.append('</Updates>')
+        xml_content = xml_content.replace('</Updates>','\n'.join(new_xml))
 
-    xml_content = xml_content.replace('</Updates>','\n'.join(new_xml))
+        with open(ramses_os_repo + '/Updates.xml', 'w', encoding='utf8') as xml_file:
+            xml_file.write(xml_content)
 
-    with open(ramses_os_repo + '/Updates.xml', 'w', encoding='utf8') as xml_file:
-        xml_file.write(xml_content)
+        create_gitkeep(abs_path(ramses_os_repo))
+        create_gitkeep(abs_path(ifw_repo))
 
-    create_gitkeep(abs_path(ramses_os_repo))
     create_gitkeep(abs_path(ramses_common_repo))
-    create_gitkeep(abs_path(ifw_repo))
 
     print(">> Done!")
 
@@ -613,14 +616,25 @@ def export_server():
 
     print(">> Done!")
 
-prepare_os()
-#deploy_client_app()
-generate_rcc()
-#generate_repos()
-create_binaries()
-#export_client()
-#export_maya()
-#export_py()
-#export_server()
+def build_all():
+    "Buikds and exports everything"
+    prepare_os()
+    deploy_client_app()
+    generate_rcc()
+    generate_repos()
+    create_binaries()
+    export_client()
+    export_maya()
+    export_py()
+    export_server()
+
+def build_common_packages():
+    """Builds and exports only the common packages and repos"""
+    generate_repos(True)
+    export_maya()
+    export_py()
+    export_server()
+
+build_common_packages()
 
 print("<< Finished! >>")

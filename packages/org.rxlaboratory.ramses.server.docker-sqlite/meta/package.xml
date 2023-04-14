@@ -3,7 +3,7 @@
     <DisplayName>Docker (SQLite)</DisplayName>
     <Description>Use the Ramses server to sync data between all Ramses Applications.\n\nThis is a preconfigured folder to install and run the Ramses Server using Docker with an SQLite Database.</Description>
     <Version inheritVersionFrom="org.rxlaboratory.ramses.server.standard">0.0.0</Version>
-    <ReleaseDate>2023-01-24</ReleaseDate>
+    <ReleaseDate>2023-04-14</ReleaseDate>
     <Default>false</Default>
     <Required>false</Required>
     <SortingPriority>1</SortingPriority>
