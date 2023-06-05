@@ -115,7 +115,7 @@ def rename_to_lowercase( file ):
         os.remove( file_lower )
     # rename
     os.rename( file, file_lower )
-3
+
 def prepare_os():
     for package in os.listdir('packages'):
         package_folder = os.path.join('packages', package)
