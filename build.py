@@ -617,7 +617,7 @@ def export_server():
     print(">> Done!")
 
 def build_all():
-    "Buikds and exports everything"
+    "Builds and exports everything"
     prepare_os()
     deploy_client_app()
     generate_rcc()
@@ -635,6 +635,8 @@ def build_common_packages():
     export_py()
     export_server()
 
+
+#build_all()
 build_common_packages()
 
 print("<< Finished! >>")
