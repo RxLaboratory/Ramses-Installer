@@ -2,6 +2,8 @@
 .DS_Store
 # Syncthing crap
 *.sync-conflict-*
+# Foldex crap
+.foldex.ini
 # bin tools
 tools/*
 # package data
@@ -13,6 +15,6 @@ packages/*/data-mac/*
 build/*
 # repository files
 repository/**/org.rxlaboratory.*
-repository/**/Updates.xml
 !repository/ramses/Updates.xml
-repository/**/*_meta.7z.foldex.ini
+repository/**/*_meta.7z
+
