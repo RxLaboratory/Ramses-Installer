@@ -329,14 +329,14 @@ def create_binaries():
     offline_path = build_path
     online_path = build_path
     if is_win:
-        offline_path = offline_path + 'Ramses_Offline-Installer.exe'
-        online_path = online_path + 'Ramses_Online-Installer.exe'
+        offline_path = os.path.join( offline_path, 'Ramses_Offline-Installer.exe' )
+        online_path = os.path.join( online_path, 'Ramses_Online-Installer.exe')
     if is_linux:
-        offline_path = offline_path + 'Ramses_Offline-Installer'
-        online_path = online_path + 'Ramses_Online-Installer'
+        offline_path = os.path.join( offline_path, 'Ramses_Offline-Installer')
+        online_path = os.path.join( online_path, 'Ramses_Online-Installer')
     if is_mac:
-        offline_path = offline_path + 'Ramses_Offline-Installer.app'
-        online_path = online_path + 'Ramses_Online-Installer.app'
+        offline_path = os.path.join( offline_path, 'Ramses_Offline-Installer.app')
+        online_path = os.path.join( online_path, 'Ramses_Online-Installer.app')
 
     print(">> Offline...")
 
@@ -355,7 +355,7 @@ def create_binaries():
     ]
 
     bin_args.append( abs_path(offline_path) )
-    
+
     bin_process = subprocess.Popen( bin_args )
     bin_process.communicate()
 
@@ -483,7 +483,13 @@ def export_client( appimage=True, deb=True, tgz=True):
                 # Move the Appimage to the build folder
                 for f in os.listdir():
                     if f.startswith('Ramses') and f.endswith('x86_64.AppImage'):
-                        os.replace( f, os.path.join(build_path, '/client/ramses-client_' + version + '-x86_64.AppImage' ) )
+                        os.replace(
+                            f,
+                            os.path.join(
+                                build_path,
+                                'client/ramses-client_' + version + '-x86_64.AppImage'
+                                )
+                            )
                         break
 
         # Build .deb
@@ -669,7 +675,7 @@ def build_common_packages():
     export_server()
     remove_sync_conflicts()
 
-build_all()
+create_binaries()
 #build_common_packages()
 
 print("<< Finished! >>")
