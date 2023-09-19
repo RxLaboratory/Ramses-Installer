@@ -6,6 +6,11 @@
 .foldex.ini
 # bin tools
 tools/*
+# Package data
+packages/**/data/*
+packages/**/data-win/*
+packages/**/data-mac/*
+packages/**/data-linux/*
 # Repository
 repository/**/org.rxlaboratory*
 *.7z*
