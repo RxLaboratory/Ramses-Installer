@@ -7,6 +7,8 @@ import tarfile
 import xml.etree.ElementTree as ET
 import tempfile
 
+build_path = '/Users/duduf/RxLab/DEV/02 - Applications/Ramses/Export/'
+
 is_win = platform.system() == 'Windows'
 is_linux = platform.system() == 'Linux'
 is_mac = platform.system() == 'Darwin'
@@ -300,7 +302,8 @@ def generate_repos( common_only=False ):
 
         new_xml = [
             '<RepositoryUpdate>',
-            '<Repository action="add" url="../common" displayname="Ramses Common Components" />']
+            '<Repository action="add" url="../common" displayname="Ramses Common Components" />'
+            ]
         if is_win:
             new_xml.append('<Repository action="add" url="../../ifw/win" displayname="RxLaboratory Maintenance Tool for Windows" />')
         new_xml.append('</RepositoryUpdate>')
@@ -321,8 +324,8 @@ def generate_repos( common_only=False ):
 def create_binaries():
     print("> Creating installer binaries...")
 
-    offline_path = 'build/'
-    online_path = 'build/'
+    offline_path = build_path
+    online_path = build_path
     if is_win:
         offline_path = offline_path + 'Ramses_Offline-Installer.exe'
         online_path = online_path + 'Ramses_Online-Installer.exe'
@@ -334,6 +337,10 @@ def create_binaries():
         online_path = online_path + 'Ramses_Online-Installer.app'
 
     print(">> Offline...")
+
+    print(">>> OS Specific Repo path: " + abs_path(ramses_os_repo))
+    print(">>> Common Repo path: " + abs_path(ramses_common_repo))
+    print(">>> IFW Repo path: " + abs_path(ifw_repo))
 
     bin_args = [
         get_binary_creator(),
@@ -422,10 +429,10 @@ def export_client( appimage=True, deb=True, tgz=True):
 
     print(">> Version: " + version)
 
-    os.makedirs('build/client/', exist_ok=True)
+    os.makedirs(os.path.join(build_path, 'client/'), exist_ok=True)
 
     if is_win:
-        zip_file = 'build/client/ramses-client_' + version + '.zip'
+        zip_file = os.path.join(build_path, 'client/ramses-client_' + version + '.zip')
         with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
             zip_dir(package_path + 'data/client/', zip)
             zip.write('packages/org.rxlaboratory.ramses.client/meta/license.md', 'License/license.md')
@@ -472,7 +479,7 @@ def export_client( appimage=True, deb=True, tgz=True):
                 # Move the Appimage to the build folder
                 for f in os.listdir():
                     if f.startswith('Ramses') and f.endswith('x86_64.AppImage'):
-                        os.replace( f, 'build/client/ramses-client_' + version + '-x86_64.AppImage' )
+                        os.replace( f, os.path.join(build_path, '/client/ramses-client_' + version + '-x86_64.AppImage' ) )
                         break
 
         # Build .deb
@@ -521,14 +528,14 @@ def export_client( appimage=True, deb=True, tgz=True):
                 # Get the result
                 shutil.copy(
                     os.path.join(tmpdata_folder, 'ramses.deb'),
-                    'build/client/ramses-client_' + version + '-amd64.deb'
+                    os.path.join(build_path, '/client/ramses-client_' + version + '-amd64.deb' )
                     )
 
         # Generate tgz  
         if tgz:
             print(">> Exporting .tar.gz...")
             client_path = os.path.join(data_folder, 'client')
-            with tarfile.open('build/client/ramses-client_' + version + '.tar.gz', "w:gz") as tar:
+            with tarfile.open( os.path.join(build_path, '/client/ramses-client_' + version + '.tar.gz') , "w:gz") as tar:
                 for filename in os.listdir(client_path):
                     p = os.path.join(client_path, filename)
                     tar.add(p, arcname=filename)
@@ -547,7 +554,7 @@ def export_client( appimage=True, deb=True, tgz=True):
 
         os.rename(
             os.path.join(data_folder, 'Ramses.dmg'),
-            os.path.join('build/client/ramses-client_' + version + '.dmg')
+            os.path.join(os.path.join(build_path, '/client/ramses-client_' + version + '.dmg') )
             )
 
     print(">> Done!")
@@ -562,9 +569,9 @@ def export_maya():
 
     print(">> Version: " + version)
 
-    os.makedirs('build/maya/', exist_ok=True)
+    os.makedirs(os.path.join(build_path, '/maya/'), exist_ok=True)
 
-    zip_file = 'build/maya/ramses-maya_' + version + '.zip'
+    zip_file = os.path.join(build_path, '/maya/ramses-maya_' + version + '.zip' )
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
         zip_dir(package_path + 'data/maya/', zip)
 
@@ -580,9 +587,9 @@ def export_py():
 
     print(">> Version: " + version)
 
-    os.makedirs('build/py/', exist_ok=True)
+    os.makedirs(os.path.join(build_path, '/py/' ), exist_ok=True)
 
-    zip_file = 'build/py/ramses-py_' + version + '.zip'
+    zip_file = os.path.join(build_path, '/py/ramses-py_' + version + '.zip' )
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
         zip_dir(package_path + 'data/py/', zip)
 
@@ -598,19 +605,19 @@ def export_server():
 
     print(">> Version: " + version)
 
-    os.makedirs('build/server/', exist_ok=True)
+    os.makedirs(os.path.join(build_path, '/server/' ), exist_ok=True)
 
-    zip_file = 'build/server/ramses-server_' + version + '.zip'
+    zip_file = os.path.join(build_path, '/server/ramses-server_' + version + '.zip' )
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
         zip_dir(package_path + 'data/server/ramses', zip)
 
     package_path = 'packages/org.rxlaboratory.ramses.server.docker-mysql/'
-    zip_file = 'build/server/ramses-server_' + version + '_docker-mysql.zip'
+    zip_file = os.path.join(build_path, '/server/ramses-server_' + version + '_docker-mysql.zip' )
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
         zip_dir(package_path + 'data/server/docker-mysql', zip)
 
         package_path = 'packages/org.rxlaboratory.ramses.server.docker-sqlite/'
-    zip_file = 'build/server/ramses-server_' + version + '_docker-sqlite.zip'
+    zip_file = os.path.join(build_path, '/server/ramses-server_' + version + '_docker-sqlite.zip' )
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
         zip_dir(package_path + 'data/server/docker-sqlite', zip)
 
@@ -635,9 +642,7 @@ def build_common_packages():
     export_py()
     export_server()
 
-
-#build_all()
+build_all()
 #build_common_packages()
-create_binaries()
 
 print("<< Finished! >>")
