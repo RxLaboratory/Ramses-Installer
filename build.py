@@ -554,7 +554,7 @@ def export_client( appimage=True, deb=True, tgz=True):
 
         os.rename(
             os.path.join(data_folder, 'Ramses.dmg'),
-            os.path.join(build_path, '/client/ramses-client_' + version + '.dmg')
+            os.path.join(build_path, 'client/ramses-client_' + version + '.dmg')
             )
 
     print(">> Done!")
@@ -642,7 +642,7 @@ def build_common_packages():
     export_py()
     export_server()
 
-build_all()
+export_client()
 #build_common_packages()
 
 print("<< Finished! >>")
