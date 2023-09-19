@@ -6,6 +6,8 @@
 .foldex.ini
 # bin tools
 tools/*
+# Repository
+repository/*
 # Builds
 build/*
 
