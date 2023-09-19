@@ -1,0 +1,21 @@
+<Updates>
+ <ApplicationName>{AnyApplication}</ApplicationName>
+ <ApplicationVersion>1.0.0</ApplicationVersion>
+ <Checksum>true</Checksum>
+ <PackageUpdate>
+  <Name>org.rxlaboratory.ifw.maintenancetool</Name>
+  <DisplayName>The RxLaboratory Maintenance Tool</DisplayName>
+  <Version>1.0.3</Version>
+  <Description>The RxLaboratory maintenance tool is used to update or uninstall the Rx Open Tools.</Description>
+  <Essential>true</Essential>
+  <Virtual>true</Virtual>
+  <ReleaseDate>2022-12-24</ReleaseDate>
+  <Script>installscript.js</Script>
+  <UpdateFile CompressedSize="10915621" OS="Any" UncompressedSize="29054908"/>
+  <DownloadableArchives>content.7z</DownloadableArchives>
+  <UserInterfaces>targetWidget.ui,finishWidget.ui</UserInterfaces>
+  <SHA1>c01c7bf7b78283f822d45cb11d8054eb07aa4b8f</SHA1>
+ </PackageUpdate>
+ <SHA1>a366d1969c76c606483af33f2e5188da10337f80</SHA1>
+ <MetadataName>2023-03-21-1936_meta.7z</MetadataName>
+</Updates>

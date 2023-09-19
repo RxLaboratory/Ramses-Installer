@@ -637,6 +637,7 @@ def build_common_packages():
 
 
 #build_all()
-build_common_packages()
+#build_common_packages()
+create_binaries()
 
 print("<< Finished! >>")

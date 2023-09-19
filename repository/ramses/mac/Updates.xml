@@ -1,0 +1,39 @@
+<Updates>
+ <ApplicationName>{AnyApplication}</ApplicationName>
+ <ApplicationVersion>1.0.0</ApplicationVersion>
+ <Checksum>true</Checksum>
+ <PackageUpdate>
+  <Name>org.rxlaboratory.ramses.client</Name>
+  <DisplayName>Ramses Application</DisplayName>
+  <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
+  <Version inheritVersionFrom="org.rxlaboratory.ramses.client.app">0.0.0</Version>
+  <ReleaseDate>2023-09-18</ReleaseDate>
+  <Default>true</Default>
+  <Required>true</Required>
+  <SortingPriority>100</SortingPriority>
+  <UpdateFile CompressedSize="0" OS="Any" UncompressedSize="0"/>
+  <Licenses>
+   <License file="license.txt" name="GNU General Public License v3"/>
+  </Licenses>
+  <SHA1>6a61f033b566122eab268847cd78c9ecd944cb15</SHA1>
+ </PackageUpdate>
+ <PackageUpdate>
+  <Name>org.rxlaboratory.ramses.client.app</Name>
+  <DisplayName>Application</DisplayName>
+  <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
+  <Version>0.8.13</Version>
+  <ReleaseDate>2023-09-18</ReleaseDate>
+  <Default>true</Default>
+  <Required>true</Required>
+  <SortingPriority>100</SortingPriority>
+  <Script>installscript.js</Script>
+  <UpdateFile CompressedSize="11304452" OS="Any" UncompressedSize="43189614"/>
+  <DownloadableArchives>Ramses.app.7z,content.7z</DownloadableArchives>
+  <SHA1>633a3aa2b62605052fac40b0bf6a6d9201b9978a</SHA1>
+ </PackageUpdate>
+ <SHA1>586ce132cc016fb07a7fbdc9c33eee872e597b2c</SHA1>
+ <MetadataName>2023-09-19-1208_meta.7z</MetadataName>
+<RepositoryUpdate>
+<Repository action="add" url="../common" displayname="Ramses Common Components" />
+</RepositoryUpdate>
+</Updates>
