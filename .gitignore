@@ -6,15 +6,7 @@
 .foldex.ini
 # bin tools
 tools/*
-# package data
-packages/*/data/*
-packages/*/data-win/*
-packages/*/data-linux/*
-packages/*/data-mac/*
-# build result
+# Builds
 build/*
-# repository files
-repository/**/org.rxlaboratory.*
-!repository/ramses/Updates.xml
-repository/**/*_meta.7z
+
 
