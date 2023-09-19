@@ -538,14 +538,14 @@ def export_client( appimage=True, deb=True, tgz=True):
                 # Get the result
                 shutil.copy(
                     os.path.join(tmpdata_folder, 'ramses.deb'),
-                    os.path.join(build_path, '/client/ramses-client_' + version + '-amd64.deb' )
+                    os.path.join(build_path, 'client/ramses-client_' + version + '-amd64.deb' )
                     )
 
         # Generate tgz  
         if tgz:
             print(">> Exporting .tar.gz...")
             client_path = os.path.join(data_folder, 'client')
-            with tarfile.open( os.path.join(build_path, '/client/ramses-client_' + version + '.tar.gz') , "w:gz") as tar:
+            with tarfile.open( os.path.join(build_path, 'client/ramses-client_' + version + '.tar.gz') , "w:gz") as tar:
                 for filename in os.listdir(client_path):
                     p = os.path.join(client_path, filename)
                     tar.add(p, arcname=filename)
@@ -675,7 +675,7 @@ def build_common_packages():
     export_server()
     remove_sync_conflicts()
 
-create_binaries()
+remove_sync_conflicts()
 #build_common_packages()
 
 print("<< Finished! >>")
