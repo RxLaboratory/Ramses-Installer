@@ -554,7 +554,7 @@ def export_client( appimage=True, deb=True, tgz=True):
 
         os.rename(
             os.path.join(data_folder, 'Ramses.dmg'),
-            os.path.join(os.path.join(build_path, '/client/ramses-client_' + version + '.dmg') )
+            os.path.join(build_path, '/client/ramses-client_' + version + '.dmg')
             )
 
     print(">> Done!")
