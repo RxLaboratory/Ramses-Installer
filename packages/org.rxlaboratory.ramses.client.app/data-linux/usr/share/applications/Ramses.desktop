@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Ramses
-GenericName=Production Manager
-Comment=The Rx Asset Management System, pipeline, production tracking and planning
-Exec=ramses
-Icon=ramses
-Categories=Office;Utility;ProjectManagement;Publishing;Archiving;FileTools;Monitor;Qt;
-Name[en_EN]=Ramses.desktop
