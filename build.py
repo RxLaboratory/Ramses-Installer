@@ -8,7 +8,8 @@ import xml.etree.ElementTree as ET
 import tempfile
 import fnmatch
 
-build_path = '/Users/duduf/RxLab/DEV/02 - Applications/Ramses/Export/'
+#build_path = '/Users/duduf/RxLab/DEV/02 - Applications/Ramses/Export/'
+build_path = '/mnt/WORK/RxLab/Dev/02 - Applications/Ramses/Export'
 
 is_win = platform.system() == 'Windows'
 is_linux = platform.system() == 'Linux'
@@ -449,8 +450,10 @@ def export_client( appimage=True, deb=True, tgz=True):
 
                 # AppRun may cause problems
                 apprun = os.path.join(data_folder, 'AppRun')
-                if os.path.isfile(apprun):
+                try:
                     os.remove( apprun )
+                except:
+                    pass
 
                 # copy data to the tmpfolder
                 shutil.rmtree( tmpdata_folder )
@@ -541,7 +544,6 @@ def export_client( appimage=True, deb=True, tgz=True):
                     p = os.path.join(client_path, filename)
                     tar.add(p, arcname=filename)
 
-    
     if is_mac:
         print(">> Exporting .dmg...")
         # Generate a dmg
@@ -667,7 +669,7 @@ def build_common_packages():
     export_server()
     remove_sync_conflicts()
 
-remove_sync_conflicts()
+build_all()
 #build_common_packages()
 
 print("<< Finished! >>")
