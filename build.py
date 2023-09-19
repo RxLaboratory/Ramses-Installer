@@ -570,9 +570,9 @@ def export_maya():
 
     print(">> Version: " + version)
 
-    os.makedirs(os.path.join(build_path, '/maya/'), exist_ok=True)
+    os.makedirs( os.path.join(build_path, 'maya/'), exist_ok=True)
 
-    zip_file = os.path.join(build_path, '/maya/ramses-maya_' + version + '.zip' )
+    zip_file = os.path.join(build_path, 'maya/ramses-maya_' + version + '.zip' )
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
         zip_dir(package_path + 'data/maya/', zip)
 
@@ -588,9 +588,9 @@ def export_py():
 
     print(">> Version: " + version)
 
-    os.makedirs(os.path.join(build_path, '/py/' ), exist_ok=True)
+    os.makedirs(os.path.join(build_path, 'py/' ), exist_ok=True)
 
-    zip_file = os.path.join(build_path, '/py/ramses-py_' + version + '.zip' )
+    zip_file = os.path.join(build_path, 'py/ramses-py_' + version + '.zip' )
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
         zip_dir(package_path + 'data/py/', zip)
 
@@ -606,19 +606,19 @@ def export_server():
 
     print(">> Version: " + version)
 
-    os.makedirs(os.path.join(build_path, '/server/' ), exist_ok=True)
+    os.makedirs(os.path.join(build_path, 'server/' ), exist_ok=True)
 
-    zip_file = os.path.join(build_path, '/server/ramses-server_' + version + '.zip' )
+    zip_file = os.path.join(build_path, 'server/ramses-server_' + version + '.zip' )
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
         zip_dir(package_path + 'data/server/ramses', zip)
 
     package_path = 'packages/org.rxlaboratory.ramses.server.docker-mysql/'
-    zip_file = os.path.join(build_path, '/server/ramses-server_' + version + '_docker-mysql.zip' )
+    zip_file = os.path.join(build_path, 'server/ramses-server_' + version + '_docker-mysql.zip' )
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
         zip_dir(package_path + 'data/server/docker-mysql', zip)
 
         package_path = 'packages/org.rxlaboratory.ramses.server.docker-sqlite/'
-    zip_file = os.path.join(build_path, '/server/ramses-server_' + version + '_docker-sqlite.zip' )
+    zip_file = os.path.join(build_path, 'server/ramses-server_' + version + '_docker-sqlite.zip' )
     with zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED) as zip:
         zip_dir(package_path + 'data/server/docker-sqlite', zip)
 
@@ -644,7 +644,6 @@ def remove_sync_conflicts():
                 print(">>> Removing: " + name)
                 os.remove(os.path.join(root, name))
 
-
 def build_all():
     "Builds and exports everything"
     remove_sync_conflicts()
@@ -668,7 +667,7 @@ def build_common_packages():
     export_server()
     remove_sync_conflicts()
 
-build_all()
+remove_sync_conflicts()
 #build_common_packages()
 
 print("<< Finished! >>")
