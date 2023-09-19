@@ -642,7 +642,7 @@ def build_common_packages():
     export_py()
     export_server()
 
-export_client()
+build_all()
 #build_common_packages()
 
 print("<< Finished! >>")
