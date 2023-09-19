@@ -7,7 +7,7 @@
 # bin tools
 tools/*
 # Repository
-repository/**/org.rxlaboratory
+repository/**/org.rxlaboratory*
 *.7z*
 # Builds
 build/*
