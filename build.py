@@ -9,7 +9,8 @@ import tempfile
 import fnmatch
 
 #build_path = '/Users/duduf/RxLab/DEV/02 - Applications/Ramses/Export/'
-build_path = '/mnt/WORK/RxLab/Dev/02 - Applications/Ramses/Export'
+#build_path = '/mnt/WORK/RxLab/Dev/02 - Applications/Ramses/Export'
+build_path = 'd:\\RxLab\\Dev\\02 - Applications\\Ramses\\Export'
 
 is_win = platform.system() == 'Windows'
 is_linux = platform.system() == 'Linux'
