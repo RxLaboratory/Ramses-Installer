@@ -6,6 +6,7 @@ import zipfile
 import tarfile
 import xml.etree.ElementTree as ET
 import tempfile
+import fnmatch
 
 build_path = '/Users/duduf/RxLab/DEV/02 - Applications/Ramses/Export/'
 
@@ -623,8 +624,30 @@ def export_server():
 
     print(">> Done!")
 
+def remove_sync_conflicts():
+
+    print("> Removing sync conflicts")
+
+    # In this dir
+    print(">> In: " + this_dir)
+    for root, dirs, files in os.walk(this_dir):
+        for name in files:
+            if fnmatch.fnmatch(name, '*sync-conflict*'):
+                print(">>> Removing: " + name)
+                os.remove(os.path.join(root, name))
+
+    # In exports
+    print(">> In: " + build_path)     
+    for root, dirs, files in os.walk(build_path):
+        for name in files:
+            if fnmatch.fnmatch(name, '*sync-conflict*'):
+                print(">>> Removing: " + name)
+                os.remove(os.path.join(root, name))
+
+
 def build_all():
     "Builds and exports everything"
+    remove_sync_conflicts()
     prepare_os()
     deploy_client_app()
     generate_rcc()
@@ -634,13 +657,16 @@ def build_all():
     export_maya()
     export_py()
     export_server()
+    remove_sync_conflicts()
 
 def build_common_packages():
     """Builds and exports only the common packages and repos"""
+    remove_sync_conflicts()
     generate_repos(True)
     export_maya()
     export_py()
     export_server()
+    remove_sync_conflicts()
 
 build_all()
 #build_common_packages()
