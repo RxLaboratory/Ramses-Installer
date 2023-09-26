@@ -8,13 +8,16 @@ import xml.etree.ElementTree as ET
 import tempfile
 import fnmatch
 
-#build_path = '/Users/duduf/RxLab/DEV/02 - Applications/Ramses/Export/'
-#build_path = '/mnt/WORK/RxLab/Dev/02 - Applications/Ramses/Export'
-build_path = 'd:\\RxLab\\Dev\\02 - Applications\\Ramses\\Export'
-
 is_win = platform.system() == 'Windows'
 is_linux = platform.system() == 'Linux'
 is_mac = platform.system() == 'Darwin'
+
+if is_mac:
+    build_path = '/Users/duduf/RxLab/DEV/02 - Applications/Ramses/Export/'
+if is_linux:
+    build_path = '/home/duduf/RxLab/Dev/02 - Applications/Ramses/Export'
+if is_win:
+    build_path = 'd:\\RxLab\\Dev\\02 - Applications\\Ramses\\Export'
 
 linuxdeployqt_bin = 'tools/linuxdeployqt-6-x86_64.AppImage'
 macdeployqt_bin = '~/Qt/5.15.2/clang_64/bin/macdeployqt'
@@ -676,7 +679,7 @@ def build_common_packages():
     export_server()
     remove_sync_conflicts()
 
-remove_sync_conflicts()
+build_all()
 #build_common_packages()
 
 print("<< Finished! >>")
