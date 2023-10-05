@@ -487,13 +487,11 @@ def export_client( appimage=True, deb=True, tgz=True):
                 # Move the Appimage to the build folder
                 for f in os.listdir():
                     if f.startswith('Ramses') and f.endswith('x86_64.AppImage'):
-                        os.replace(
-                            f,
-                            os.path.join(
+                        shutil.copyfile(f, os.path.join(
                                 build_path,
                                 'client/ramses-client_' + version + '-x86_64.AppImage'
-                                )
-                            )
+                                ))
+                        os.remove(f)
                         break
 
         # Build .deb
@@ -679,7 +677,7 @@ def build_common_packages():
     export_server()
     remove_sync_conflicts()
 
-build_all()
+create_binaries()
 #build_common_packages()
 
 print("<< Finished! >>")
