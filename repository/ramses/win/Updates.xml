@@ -11,25 +11,25 @@
   <Default>true</Default>
   <Required>true</Required>
   <SortingPriority>100</SortingPriority>
-  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
+  <UpdateFile OS="Any" CompressedSize="0" UncompressedSize="0"/>
   <Licenses>
-   <License name="GNU General Public License v3" file="license.txt"/>
+   <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>b2d628853d8a1e353901c9d4d9981d3d84db1f85</SHA1>
+  <SHA1>929c7151b62387dc358836ac80a570e1c65ce954</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.client.app</Name>
   <DisplayName>Application</DisplayName>
   <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
-  <Version>0.8.14</Version>
-  <ReleaseDate>2023-09-26</ReleaseDate>
+  <Version>0.8.15</Version>
+  <ReleaseDate>2023-10-05</ReleaseDate>
   <Default>true</Default>
   <Required>true</Required>
   <SortingPriority>100</SortingPriority>
   <Script>installscript.js</Script>
-  <UpdateFile OS="Any" UncompressedSize="87180970" CompressedSize="22461001"/>
+  <UpdateFile OS="Any" CompressedSize="22475960" UncompressedSize="87237696"/>
   <DownloadableArchives>client.7z,content.7z</DownloadableArchives>
-  <SHA1>4e42822f469d8276d242d144bbff8df323f4412d</SHA1>
+  <SHA1>485f402b9799d5a5f49b60462b51916102425123</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.client.desktopShortcut</Name>
@@ -41,8 +41,8 @@
   <Required>false</Required>
   <SortingPriority>1</SortingPriority>
   <Script>installscript.js</Script>
-  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
-  <SHA1>48dcbe126eeaebf900e0c01b6a01a2cd60f4b472</SHA1>
+  <UpdateFile OS="Any" CompressedSize="0" UncompressedSize="0"/>
+  <SHA1>270972ffe07301c90636dd3595af7833ce6b864e</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.client.startMenuShortcut</Name>
@@ -54,11 +54,11 @@
   <Required>false</Required>
   <SortingPriority>2</SortingPriority>
   <Script>installscript.js</Script>
-  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
-  <SHA1>b76f54980e56a1aed554af654d138eba139581dd</SHA1>
+  <UpdateFile OS="Any" CompressedSize="0" UncompressedSize="0"/>
+  <SHA1>53a3cadf0c5b1da444a5da1f3bede85a4547ed60</SHA1>
  </PackageUpdate>
- <SHA1>37387ca89bb66f0c5f7e2d2944e1ca8ccf3061de</SHA1>
- <MetadataName>2023-09-26-1204_meta.7z</MetadataName>
+ <SHA1>3959d802ce6349145653340fee929b287bea1789</SHA1>
+ <MetadataName>2023-10-05-1400_meta.7z</MetadataName>
 <RepositoryUpdate>
 <Repository action="add" url="../common" displayname="Ramses Common Components" />
 <Repository action="add" url="../../ifw/win" displayname="RxLaboratory Maintenance Tool for Windows" />
