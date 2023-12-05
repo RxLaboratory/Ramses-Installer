@@ -12,8 +12,8 @@
   <Required>false</Required>
   <SortingPriority>20</SortingPriority>
   <ExpandedByDefault>false</ExpandedByDefault>
-  <UpdateFile UncompressedSize="0" OS="Any" CompressedSize="0"/>
-  <SHA1>c6303dd4b78a0e80dbad4a410527edddd0043c3a</SHA1>
+  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
+  <SHA1>89f274ca563735feabc1e53c693d9bba33a46820</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.addon.maya</Name>
@@ -24,12 +24,12 @@
   <Default>false</Default>
   <Required>false</Required>
   <Script>installscript.js</Script>
-  <UpdateFile UncompressedSize="153851950" OS="Any" CompressedSize="38061955"/>
+  <UpdateFile OS="Any" UncompressedSize="153851950" CompressedSize="38061975"/>
   <DownloadableArchives>maya.7z</DownloadableArchives>
   <Licenses>
-   <License name="GNU General Public License v3" file="license.txt"/>
+   <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>c7dc232f152baa92bfb8d085b11255097a491248</SHA1>
+  <SHA1>d772b6d3c0929980ecae076e763810c41174a99e</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.dev</Name>
@@ -41,8 +41,8 @@
   <Required>false</Required>
   <SortingPriority>10</SortingPriority>
   <ExpandedByDefault>false</ExpandedByDefault>
-  <UpdateFile UncompressedSize="0" OS="Any" CompressedSize="0"/>
-  <SHA1>b735514cbbc78c76873468f5c5743c0740c8bd2e</SHA1>
+  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
+  <SHA1>da868278d4a662b51294db83c8191789bf7730c6</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.dev.py</Name>
@@ -52,74 +52,74 @@
   <ReleaseDate>2023-05-16</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
-  <UpdateFile UncompressedSize="169681" OS="Any" CompressedSize="25569"/>
+  <UpdateFile OS="Any" UncompressedSize="169681" CompressedSize="25570"/>
   <DownloadableArchives>py.7z</DownloadableArchives>
   <Licenses>
-   <License name="GNU General Public License v3" file="license.txt"/>
+   <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>84c17d7212728056c99ec5b0e7285baac479133b</SHA1>
+  <SHA1>2017914237306b1113a7228be2433b7e9dd76290</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server</Name>
   <DisplayName>Server</DisplayName>
   <Description>Use the Ramses server to sync data between all Ramses Applications.</Description>
   <Version>0.8</Version>
-  <ReleaseDate>2023-11-14</ReleaseDate>
+  <ReleaseDate>2023-12-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>0</SortingPriority>
   <ExpandedByDefault>false</ExpandedByDefault>
-  <UpdateFile UncompressedSize="0" OS="Any" CompressedSize="0"/>
-  <SHA1>6387b3eb890d8dc2a9fc9c6de98324cd279338f3</SHA1>
+  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
+  <SHA1>b95a373420727392c35751c8c3f0de9be2fb87c2</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server.docker-mysql</Name>
   <DisplayName>Docker (MySQL)</DisplayName>
   <Description>Use the Ramses server to sync data between all Ramses Applications.\n\nThis is a preconfigured folder to install and run the Ramses Server using Docker with a MySQL Database.</Description>
   <Version inheritVersionFrom="org.rxlaboratory.ramses.server.standard">0.0.0</Version>
-  <ReleaseDate>2023-11-14</ReleaseDate>
+  <ReleaseDate>2023-12-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>2</SortingPriority>
-  <UpdateFile UncompressedSize="151813" OS="Any" CompressedSize="22408"/>
+  <UpdateFile OS="Any" UncompressedSize="151739" CompressedSize="22233"/>
   <DownloadableArchives>server.7z</DownloadableArchives>
   <Licenses>
-   <License name="GNU General Public License v3" file="license.txt"/>
+   <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>9c7bf5e879f4a95b73689aa20e8663b4146edecc</SHA1>
+  <SHA1>e27b478f4713d4693c3566ca5dda3663e071c648</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server.docker-sqlite</Name>
   <DisplayName>Docker (SQLite)</DisplayName>
   <Description>Use the Ramses server to sync data between all Ramses Applications.\n\nThis is a preconfigured folder to install and run the Ramses Server using Docker with an SQLite Database.</Description>
   <Version inheritVersionFrom="org.rxlaboratory.ramses.server.standard">0.0.0</Version>
-  <ReleaseDate>2023-11-14</ReleaseDate>
+  <ReleaseDate>2023-12-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>1</SortingPriority>
-  <UpdateFile UncompressedSize="150497" OS="Any" CompressedSize="22057"/>
+  <UpdateFile OS="Any" UncompressedSize="150423" CompressedSize="21872"/>
   <DownloadableArchives>server.7z</DownloadableArchives>
   <Licenses>
-   <License name="GNU General Public License v3" file="license.txt"/>
+   <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>b5f4b5e81b2ae3b94da19bf64163254bbcf0ed50</SHA1>
+  <SHA1>093b5e5d810b62d37ffae68c66cf29c261c28cc8</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server.standard</Name>
   <DisplayName>Standard Server</DisplayName>
   <Description>Use the Ramses server to sync data between all Ramses Applications.\n\nThis is the standard server, which can easily be installed on any web server running PHP.</Description>
-  <Version>0.8.9</Version>
-  <ReleaseDate>2023-11-14</ReleaseDate>
+  <Version>0.8.10</Version>
+  <ReleaseDate>2023-12-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>3</SortingPriority>
-  <UpdateFile UncompressedSize="149683" OS="Any" CompressedSize="21447"/>
+  <UpdateFile OS="Any" UncompressedSize="149521" CompressedSize="21234"/>
   <DownloadableArchives>server.7z</DownloadableArchives>
   <Licenses>
-   <License name="GNU General Public License v3" file="license.txt"/>
+   <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>bb6a8dd5a9c67253a968c62194ad4d4d4f6fd336</SHA1>
+  <SHA1>d753153fe1bf8357f58f1eaa8b0fdd2be918300c</SHA1>
  </PackageUpdate>
- <SHA1>baaad871214f284b8e586a2cfb0e9f59ea51f62a</SHA1>
- <MetadataName>2023-11-14-1136_meta.7z</MetadataName>
+ <SHA1>635593d3f39e242b764a906df82c9036bc8e9501</SHA1>
+ <MetadataName>2023-12-05-1557_meta.7z</MetadataName>
 </Updates>
