@@ -7,58 +7,58 @@
   <DisplayName>Ramses Application</DisplayName>
   <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
   <Version inheritVersionFrom="org.rxlaboratory.ramses.client.app">0.0.0</Version>
-  <ReleaseDate>2023-09-18</ReleaseDate>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>true</Default>
   <Required>true</Required>
   <SortingPriority>100</SortingPriority>
-  <UpdateFile OS="Any" CompressedSize="0" UncompressedSize="0"/>
+  <UpdateFile UncompressedSize="0" OS="Any" CompressedSize="0"/>
   <Licenses>
    <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>929c7151b62387dc358836ac80a570e1c65ce954</SHA1>
+  <SHA1>7e0e28e5e3d3dae5a80bb3b3bfee892493f23e17</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.client.app</Name>
   <DisplayName>Application</DisplayName>
   <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
-  <Version>0.8.15</Version>
-  <ReleaseDate>2023-10-05</ReleaseDate>
+  <Version>0.9.0</Version>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>true</Default>
   <Required>true</Required>
   <SortingPriority>100</SortingPriority>
   <Script>installscript.js</Script>
-  <UpdateFile OS="Any" CompressedSize="22475960" UncompressedSize="87237696"/>
+  <UpdateFile UncompressedSize="87365184" OS="Any" CompressedSize="22507321"/>
   <DownloadableArchives>client.7z,content.7z</DownloadableArchives>
-  <SHA1>485f402b9799d5a5f49b60462b51916102425123</SHA1>
+  <SHA1>ce4ea47b6745dd4ee64d55a897786639e16827cf</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.client.desktopShortcut</Name>
   <DisplayName>Desktop Shortcut</DisplayName>
   <Description>Add a desktop shortcut to the Ramses Application.</Description>
   <Version inheritVersionFrom="org.rxlaboratory.ramses.client.app">0.0.0</Version>
-  <ReleaseDate>2023-02-01</ReleaseDate>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>1</SortingPriority>
   <Script>installscript.js</Script>
-  <UpdateFile OS="Any" CompressedSize="0" UncompressedSize="0"/>
-  <SHA1>270972ffe07301c90636dd3595af7833ce6b864e</SHA1>
+  <UpdateFile UncompressedSize="0" OS="Any" CompressedSize="0"/>
+  <SHA1>90ba12d7df770048a8db1543ce83d3a8814877fd</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.client.startMenuShortcut</Name>
   <DisplayName>Start Menu Shortcut</DisplayName>
   <Description>Add a start menu shortcut to the Ramses Application.</Description>
   <Version inheritVersionFrom="org.rxlaboratory.ramses.client.app">0.0.0</Version>
-  <ReleaseDate>2023-02-01</ReleaseDate>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>true</Default>
   <Required>false</Required>
   <SortingPriority>2</SortingPriority>
   <Script>installscript.js</Script>
-  <UpdateFile OS="Any" CompressedSize="0" UncompressedSize="0"/>
-  <SHA1>53a3cadf0c5b1da444a5da1f3bede85a4547ed60</SHA1>
+  <UpdateFile UncompressedSize="0" OS="Any" CompressedSize="0"/>
+  <SHA1>c68b682e5fcb8a337818a40a208014d7ddb1a542</SHA1>
  </PackageUpdate>
- <SHA1>3959d802ce6349145653340fee929b287bea1789</SHA1>
- <MetadataName>2023-10-05-1400_meta.7z</MetadataName>
+ <SHA1>1d34ad7160fa253827d235c82b6d03265bae4aaf</SHA1>
+ <MetadataName>2024-02-05-2014_meta.7z</MetadataName>
 <RepositoryUpdate>
 <Repository action="add" url="../common" displayname="Ramses Common Components" />
 <Repository action="add" url="../../ifw/win" displayname="RxLaboratory Maintenance Tool for Windows" />

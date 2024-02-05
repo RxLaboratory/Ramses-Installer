@@ -6,120 +6,120 @@
   <Name>org.rxlaboratory.ramses.addon</Name>
   <DisplayName>Add-ons</DisplayName>
   <Description>Add-ons to integrate Ramses in your creative applications.</Description>
-  <Version>0.8</Version>
-  <ReleaseDate>2023-01-24</ReleaseDate>
+  <Version>0.9</Version>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>20</SortingPriority>
   <ExpandedByDefault>false</ExpandedByDefault>
-  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
-  <SHA1>bc6f28f3ced03b9947411f769b9e97ff3fd96127</SHA1>
+  <UpdateFile CompressedSize="0" UncompressedSize="0" OS="Any"/>
+  <SHA1>611d4162effdf0ae16b41665036cfe30bc9be9c9</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.addon.maya</Name>
   <DisplayName>Autodesk Maya Module</DisplayName>
   <Description>This Module fully integrates Ramses in Autodesk Maya.</Description>
-  <Version>0.8.33</Version>
-  <ReleaseDate>2023-01-18</ReleaseDate>
+  <Version>0.9.0</Version>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <Script>installscript.js</Script>
-  <UpdateFile OS="Any" UncompressedSize="153861931" CompressedSize="38062463"/>
+  <UpdateFile CompressedSize="38070048" UncompressedSize="153865352" OS="Any"/>
   <DownloadableArchives>maya.7z</DownloadableArchives>
   <Licenses>
    <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>7d6be7a07b6731ac8610317ad8fe10495beed403</SHA1>
+  <SHA1>b31a71e835a55c0fe70ffebba1cc697b8e492c88</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.dev</Name>
   <DisplayName>Scripting API</DisplayName>
   <Description>Write your own add-ons for Ramses.</Description>
-  <Version>0.8</Version>
-  <ReleaseDate>2022-11-01</ReleaseDate>
+  <Version>0.9</Version>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>10</SortingPriority>
   <ExpandedByDefault>false</ExpandedByDefault>
-  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
-  <SHA1>aa5b11b777f2c096525f1aa0abbc4b7c72b23ba3</SHA1>
+  <UpdateFile CompressedSize="0" UncompressedSize="0" OS="Any"/>
+  <SHA1>9e1d548efb64459d8b876d04d4b605e6f6b05f1e</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.dev.py</Name>
   <DisplayName>Python API</DisplayName>
   <Description>Write your own add-ons in Python using the ramses module.</Description>
-  <Version>0.8.5</Version>
-  <ReleaseDate>2023-05-16</ReleaseDate>
+  <Version>0.9.0</Version>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
-  <UpdateFile OS="Any" UncompressedSize="169681" CompressedSize="25658"/>
+  <UpdateFile CompressedSize="25755" UncompressedSize="171486" OS="Any"/>
   <DownloadableArchives>py.7z</DownloadableArchives>
   <Licenses>
    <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>0c8b258214fc9104a4e7fbef1bb9ab13494e283c</SHA1>
+  <SHA1>297e0894e3f3f83c32bc64ad51edfbc5a1dbc1c1</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server</Name>
   <DisplayName>Server</DisplayName>
   <Description>Use the Ramses server to sync data between all Ramses Applications.</Description>
-  <Version>0.8</Version>
-  <ReleaseDate>2023-12-05</ReleaseDate>
+  <Version>0.9</Version>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>0</SortingPriority>
   <ExpandedByDefault>false</ExpandedByDefault>
-  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
-  <SHA1>cbccd014221c2be6eee1ba6cc480af5070018264</SHA1>
+  <UpdateFile CompressedSize="0" UncompressedSize="0" OS="Any"/>
+  <SHA1>2718c1561eb29049100ab397e23d2991aea19344</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server.docker-mysql</Name>
   <DisplayName>Docker (MySQL)</DisplayName>
   <Description>Use the Ramses server to sync data between all Ramses Applications.\n\nThis is a preconfigured folder to install and run the Ramses Server using Docker with a MySQL Database.</Description>
   <Version inheritVersionFrom="org.rxlaboratory.ramses.server.standard">0.0.0</Version>
-  <ReleaseDate>2023-12-05</ReleaseDate>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>2</SortingPriority>
-  <UpdateFile OS="Any" UncompressedSize="152898" CompressedSize="22490"/>
+  <UpdateFile CompressedSize="22470" UncompressedSize="152897" OS="Any"/>
   <DownloadableArchives>server.7z</DownloadableArchives>
   <Licenses>
    <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>c883ccc0dff9bc959bc529a726e2c288de9216ed</SHA1>
+  <SHA1>03e4b77f8b1931f16977546f7c7b6cdf0d70da6d</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server.docker-sqlite</Name>
   <DisplayName>Docker (SQLite)</DisplayName>
   <Description>Use the Ramses server to sync data between all Ramses Applications.\n\nThis is a preconfigured folder to install and run the Ramses Server using Docker with an SQLite Database.</Description>
   <Version inheritVersionFrom="org.rxlaboratory.ramses.server.standard">0.0.0</Version>
-  <ReleaseDate>2023-12-05</ReleaseDate>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>1</SortingPriority>
-  <UpdateFile OS="Any" UncompressedSize="151582" CompressedSize="22128"/>
+  <UpdateFile CompressedSize="22128" UncompressedSize="151581" OS="Any"/>
   <DownloadableArchives>server.7z</DownloadableArchives>
   <Licenses>
    <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>4b75986a63ea7b10b90a24ca88434bafc5ae5c6c</SHA1>
+  <SHA1>785406d18c033c2e227101c65cf30c1e1c2b062a</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server.standard</Name>
   <DisplayName>Standard Server</DisplayName>
   <Description>Use the Ramses server to sync data between all Ramses Applications.\n\nThis is the standard server, which can easily be installed on any web server running PHP.</Description>
-  <Version>0.8.12</Version>
-  <ReleaseDate>2023-01-18</ReleaseDate>
+  <Version>0.9.0</Version>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>3</SortingPriority>
-  <UpdateFile OS="Any" UncompressedSize="150680" CompressedSize="21482"/>
+  <UpdateFile CompressedSize="21596" UncompressedSize="150874" OS="Any"/>
   <DownloadableArchives>server.7z</DownloadableArchives>
   <Licenses>
    <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>9b86185150569a9580d40e5deca346b797c4a4f1</SHA1>
+  <SHA1>d54a647764a4f84b5068a1473362ef905daca295</SHA1>
  </PackageUpdate>
- <SHA1>21c583b3caa60f4920fa876e57e2e3f31e71e5b7</SHA1>
- <MetadataName>2024-01-18-2009_meta.7z</MetadataName>
+ <SHA1>419ccdcab3725bf82669f79debb838f010af340b</SHA1>
+ <MetadataName>2024-02-05-2015_meta.7z</MetadataName>
 </Updates>
