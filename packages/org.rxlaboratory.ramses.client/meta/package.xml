@@ -3,7 +3,7 @@
     <DisplayName>Ramses Application</DisplayName>
     <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
     <Version inheritVersionFrom="org.rxlaboratory.ramses.client.app">0.0.0</Version>
-    <ReleaseDate>2023-09-18</ReleaseDate>
+    <ReleaseDate>2024-02-05</ReleaseDate>
     <Default>true</Default>
     <Required>true</Required>
     <SortingPriority>100</SortingPriority>

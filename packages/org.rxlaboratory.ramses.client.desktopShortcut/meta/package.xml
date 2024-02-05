@@ -3,7 +3,7 @@
     <DisplayName>Desktop Shortcut</DisplayName>
     <Description>Add a desktop shortcut to the Ramses Application.</Description>
     <Version inheritVersionFrom="org.rxlaboratory.ramses.client.app">0.0.0</Version>
-    <ReleaseDate>2023-02-01</ReleaseDate>
+    <ReleaseDate>2024-02-05</ReleaseDate>
     <Default>false</Default>
     <Required>false</Required>
     <SortingPriority>1</SortingPriority>
