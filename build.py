@@ -678,6 +678,6 @@ def build_common_packages():
     remove_sync_conflicts()
 
 build_all()
-#○build_common_packages()
+#build_common_packages()
 
 print("<< Finished! >>")
