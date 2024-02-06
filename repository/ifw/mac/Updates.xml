@@ -11,11 +11,11 @@
   <Virtual>true</Virtual>
   <ReleaseDate>2022-12-24</ReleaseDate>
   <Script>installscript.js</Script>
-  <UpdateFile OS="Any" CompressedSize="9414419" UncompressedSize="27951220"/>
+  <UpdateFile CompressedSize="9414570" OS="Any" UncompressedSize="27951187"/>
   <DownloadableArchives>Ramses Maintenance Tool.app.7z,content.7z</DownloadableArchives>
   <UserInterfaces>targetWidget.ui,finishWidget.ui</UserInterfaces>
-  <SHA1>565005b9db9410d7470931587ff814444e5c3124</SHA1>
+  <SHA1>a753458ccddd58aa9c46c826b08b31bf7519d5f5</SHA1>
  </PackageUpdate>
- <SHA1>4f46dd6bb281da3fb1e7b144ff53f5b61fb7679c</SHA1>
- <MetadataName>2023-10-05-1636_meta.7z</MetadataName>
+ <SHA1>acd5de0433f289a94840e5697891a9013c271c8a</SHA1>
+ <MetadataName>2024-02-06-1207_meta.7z</MetadataName>
 </Updates>

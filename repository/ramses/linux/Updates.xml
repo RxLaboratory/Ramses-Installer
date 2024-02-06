@@ -7,32 +7,32 @@
   <DisplayName>Ramses Application</DisplayName>
   <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
   <Version inheritVersionFrom="org.rxlaboratory.ramses.client.app">0.0.0</Version>
-  <ReleaseDate>2023-09-18</ReleaseDate>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>true</Default>
   <Required>true</Required>
   <SortingPriority>100</SortingPriority>
-  <UpdateFile CompressedSize="0" UncompressedSize="0" OS="Any"/>
+  <UpdateFile CompressedSize="0" OS="Any" UncompressedSize="0"/>
   <Licenses>
    <License name="GNU General Public License v3" file="license.txt"/>
   </Licenses>
-  <SHA1>944a52d7aca6ffabb7ee0ac5af2cb604ed37531d</SHA1>
+  <SHA1>af6bc8e7dd1ee55ee80ed9f236b09e8c72b61888</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.client.app</Name>
   <DisplayName>Application</DisplayName>
   <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
-  <Version>0.8.15</Version>
-  <ReleaseDate>2023-10-05</ReleaseDate>
+  <Version>0.9.0</Version>
+  <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>true</Default>
   <Required>true</Required>
   <SortingPriority>100</SortingPriority>
   <Script>installscript.js</Script>
-  <UpdateFile CompressedSize="19222328" UncompressedSize="71204065" OS="Any"/>
+  <UpdateFile CompressedSize="19274678" OS="Any" UncompressedSize="71439953"/>
   <DownloadableArchives>client.7z,content.7z</DownloadableArchives>
-  <SHA1>a276cf77b33299d67ddbfd57a7db19166bf6514f</SHA1>
+  <SHA1>6cbeed60da30c2c89d53a8ae44d24fb11f3f7105</SHA1>
  </PackageUpdate>
- <SHA1>c7cd618321bf2688ec0d5404703cb704e133b573</SHA1>
- <MetadataName>2023-10-05-1743_meta.7z</MetadataName>
+ <SHA1>a27e96078ec63760db3143be330a184a6f257c84</SHA1>
+ <MetadataName>2024-02-06-1253_meta.7z</MetadataName>
 <RepositoryUpdate>
 <Repository action="add" url="../common" displayname="Ramses Common Components" />
 </RepositoryUpdate>

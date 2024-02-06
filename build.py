@@ -15,7 +15,7 @@ is_mac = platform.system() == 'Darwin'
 if is_mac:
     build_path = '/Users/duduf/RxLab/DEV/02 - Applications/Ramses/Export/'
 if is_linux:
-    build_path = '/mnt/WORK/RxLab/Dev/02 - Applications/Ramses/Export/'
+    build_path = '/home/duduf/RxLab/Dev/02 - Applications/Ramses/Export'
 if is_win:
     build_path = 'd:\\RxLab\\Dev\\02 - Applications\\Ramses\\Export'
 
