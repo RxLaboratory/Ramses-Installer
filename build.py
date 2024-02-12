@@ -49,7 +49,13 @@ if is_mac:
 
 def get_ifw_path():
     if is_win:
-        return 'C:/Qt/Tools/QtInstallerFramework/4.5/bin/'
+        folder = 'C:/Qt/Tools/QtInstallerFramework/4.5/bin/'
+        if os.path.isdir(folder):
+            return folder
+        folder = 'C:/Qt/Tools/QtInstallerFramework/4.6/bin/'
+        if os.path.isdir(folder):
+            return folder
+        return ''
     if is_linux or is_mac:
         return os.path.expanduser('~/Qt/Tools/QtInstallerFramework/4.5/bin/')
 
