@@ -12,8 +12,8 @@
   <Required>false</Required>
   <SortingPriority>20</SortingPriority>
   <ExpandedByDefault>false</ExpandedByDefault>
-  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
-  <SHA1>0dd439e0fa2cd25f6126ba86802c42ef0f830b5e</SHA1>
+  <UpdateFile OS="Any" CompressedSize="0" UncompressedSize="0"/>
+  <SHA1>127d458cc4fb036b79842ed031ea01ea618c9390</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.addon.maya</Name>
@@ -24,12 +24,12 @@
   <Default>false</Default>
   <Required>false</Required>
   <Script>installscript.js</Script>
-  <UpdateFile OS="Any" UncompressedSize="154279754" CompressedSize="38204034"/>
+  <UpdateFile OS="Any" CompressedSize="38185683" UncompressedSize="154279769"/>
   <DownloadableArchives>maya.7z</DownloadableArchives>
   <Licenses>
    <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>676657df06c05b2f5a9bca42788e6b7a71d82b1f</SHA1>
+  <SHA1>e02546e7f489d30e9df813a5318ee91f7fb9e9b0</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.dev</Name>
@@ -41,8 +41,8 @@
   <Required>false</Required>
   <SortingPriority>10</SortingPriority>
   <ExpandedByDefault>false</ExpandedByDefault>
-  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
-  <SHA1>2fa48dac717d46c924cc63587f165e7b87fb22c3</SHA1>
+  <UpdateFile OS="Any" CompressedSize="0" UncompressedSize="0"/>
+  <SHA1>9639603fdde4bfc7fdfa6dd5d73cf510f9cbc517</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.dev.py</Name>
@@ -52,12 +52,12 @@
   <ReleaseDate>2024-02-05</ReleaseDate>
   <Default>false</Default>
   <Required>false</Required>
-  <UpdateFile OS="Any" UncompressedSize="169681" CompressedSize="25684"/>
+  <UpdateFile OS="Any" CompressedSize="25674" UncompressedSize="169681"/>
   <DownloadableArchives>py.7z</DownloadableArchives>
   <Licenses>
    <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>1691ca574aa53c5af26c4a427162e1a87e763348</SHA1>
+  <SHA1>8d6e1776deb98c58dde80c3154ae2d7a69821151</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server</Name>
@@ -69,8 +69,8 @@
   <Required>false</Required>
   <SortingPriority>0</SortingPriority>
   <ExpandedByDefault>false</ExpandedByDefault>
-  <UpdateFile OS="Any" UncompressedSize="0" CompressedSize="0"/>
-  <SHA1>bd6800edd3b38bc035684a13603dc1f3ba5b01a3</SHA1>
+  <UpdateFile OS="Any" CompressedSize="0" UncompressedSize="0"/>
+  <SHA1>b4393a4d86216fa03001f315174ea73b749f6e8f</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server.docker-mysql</Name>
@@ -81,12 +81,12 @@
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>2</SortingPriority>
-  <UpdateFile OS="Any" UncompressedSize="151755" CompressedSize="22412"/>
+  <UpdateFile OS="Any" CompressedSize="22434" UncompressedSize="151755"/>
   <DownloadableArchives>server.7z</DownloadableArchives>
   <Licenses>
    <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>ad4a7d4c45ab15720c185a191d76f496f62d0d11</SHA1>
+  <SHA1>d3ad79e0c46f8a91d41fefed08eb73f3665a3db2</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server.docker-sqlite</Name>
@@ -97,12 +97,12 @@
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>1</SortingPriority>
-  <UpdateFile OS="Any" UncompressedSize="150439" CompressedSize="22049"/>
+  <UpdateFile OS="Any" CompressedSize="22055" UncompressedSize="150439"/>
   <DownloadableArchives>server.7z</DownloadableArchives>
   <Licenses>
    <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>90ec99fc99987d7803621bbf922512fcee0ad1f1</SHA1>
+  <SHA1>81504a68bd9f407165d7cf0cd9069a50b68c3cb2</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.server.standard</Name>
@@ -113,13 +113,13 @@
   <Default>false</Default>
   <Required>false</Required>
   <SortingPriority>3</SortingPriority>
-  <UpdateFile OS="Any" UncompressedSize="146853" CompressedSize="21269"/>
+  <UpdateFile OS="Any" CompressedSize="21243" UncompressedSize="146853"/>
   <DownloadableArchives>server.7z</DownloadableArchives>
   <Licenses>
    <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>9846f528faa86dc7bc0e09a11103120bff49183a</SHA1>
+  <SHA1>bf46372a238dc4f5f5cabeb6c90061bdb98a00c0</SHA1>
  </PackageUpdate>
- <SHA1>60bc6dfd25198464f10ee058fa67924e0f661cc7</SHA1>
- <MetadataName>2024-02-13-1200_meta.7z</MetadataName>
+ <SHA1>c544b7ca50c14e89c9056e8dad24562b384507f4</SHA1>
+ <MetadataName>2024-02-13-1658_meta.7z</MetadataName>
 </Updates>
