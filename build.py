@@ -425,8 +425,8 @@ def create_binaries():
         bin_process = subprocess.Popen( bin_args )
         bin_process.communicate()
 
-        shutil.rmtree( online_path )
-        shutil.rmtree( offline_path )
+        #shutil.rmtree( online_path )
+        #shutil.rmtree( offline_path )
 
     print(">> Done!")
 
@@ -683,7 +683,8 @@ def build_common_packages():
     export_server()
     remove_sync_conflicts()
 
-#build_all()
-build_common_packages()
+build_all()
+#build_common_packages()
+#create_binaries()
 
 print("<< Finished! >>")

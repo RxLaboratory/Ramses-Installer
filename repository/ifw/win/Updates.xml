@@ -11,11 +11,11 @@
   <Virtual>true</Virtual>
   <ReleaseDate>2022-12-24</ReleaseDate>
   <Script>installscript.js</Script>
-  <UpdateFile CompressedSize="10194584" UncompressedSize="26271359" OS="Any"/>
+  <UpdateFile CompressedSize="10196850" OS="Any" UncompressedSize="27194757"/>
   <DownloadableArchives>content.7z</DownloadableArchives>
   <UserInterfaces>targetWidget.ui,finishWidget.ui</UserInterfaces>
-  <SHA1>3463e93fb6b21eefe9ab34d86ef9a29303c9d855</SHA1>
+  <SHA1>786d43cf3d9fd411705ba67747d6cd306d5b9eec</SHA1>
  </PackageUpdate>
- <SHA1>e3baa9f3dfbcdf272abdf1939c978e8bc0c4ea5d</SHA1>
- <MetadataName>2024-02-12-1652_meta.7z</MetadataName>
+ <SHA1>80365d8807ac3fe7803535b489a2e708bf0f0ef6</SHA1>
+ <MetadataName>2024-03-07-1008_meta.7z</MetadataName>
 </Updates>
