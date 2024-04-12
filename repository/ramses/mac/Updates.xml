@@ -7,32 +7,32 @@
   <DisplayName>Ramses Application</DisplayName>
   <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
   <Version inheritVersionFrom="org.rxlaboratory.ramses.client.app">0.0.0</Version>
-  <ReleaseDate>2024-02-05</ReleaseDate>
+  <ReleaseDate>2024-04-12</ReleaseDate>
   <Default>true</Default>
   <Required>true</Required>
   <SortingPriority>100</SortingPriority>
-  <UpdateFile CompressedSize="0" UncompressedSize="0" OS="Any"/>
+  <UpdateFile UncompressedSize="0" OS="Any" CompressedSize="0"/>
   <Licenses>
-   <License name="GNU General Public License v3" file="license.txt"/>
+   <License file="license.txt" name="GNU General Public License v3"/>
   </Licenses>
-  <SHA1>3c930d18b318c8e2e51b872c5878cfefb3350056</SHA1>
+  <SHA1>d1e8bcaf4af0a28831b847473880866cf4d9cc43</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.client.app</Name>
   <DisplayName>Application</DisplayName>
   <Description>The Ramses application is the core of the Rx Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
-  <Version>0.9.3</Version>
-  <ReleaseDate>2024-03-20</ReleaseDate>
+  <Version>0.9.4</Version>
+  <ReleaseDate>2024-04-12</ReleaseDate>
   <Default>true</Default>
   <Required>true</Required>
   <SortingPriority>100</SortingPriority>
   <Script>installscript.js</Script>
-  <UpdateFile CompressedSize="11060255" UncompressedSize="35467254" OS="Any"/>
+  <UpdateFile UncompressedSize="35480926" OS="Any" CompressedSize="11066640"/>
   <DownloadableArchives>Ramses.app.7z,content.7z</DownloadableArchives>
-  <SHA1>8f772dd7dd5bdb4320901b4eda29d5d5199ade2a</SHA1>
+  <SHA1>1007e1b3c22d5f8218e36745624fe767650c4d91</SHA1>
  </PackageUpdate>
- <SHA1>019dbaffe1f335cb7bce5e5727e25d9c316822df</SHA1>
- <MetadataName>2024-03-20-1916_meta.7z</MetadataName>
+ <SHA1>15acf3f40ae49506eb141519c7781b734861a67d</SHA1>
+ <MetadataName>2024-04-12-1458_meta.7z</MetadataName>
 <RepositoryUpdate>
 <Repository action="add" url="../common" displayname="Ramses Common Components" />
 </RepositoryUpdate>
