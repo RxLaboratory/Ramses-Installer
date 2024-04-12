@@ -3,7 +3,7 @@
     <DisplayName>Server</DisplayName>
     <Description>Use the Ramses server to sync data between all Ramses Applications.</Description>
     <Version>0.9</Version>
-    <ReleaseDate>2024-02-05</ReleaseDate>
+    <ReleaseDate>2024-04-12</ReleaseDate>
     <Default>false</Default>
     <Required>false</Required>
     <SortingPriority>0</SortingPriority>
