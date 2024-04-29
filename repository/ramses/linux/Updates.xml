@@ -11,11 +11,11 @@
   <Default>true</Default>
   <Required>true</Required>
   <SortingPriority>100</SortingPriority>
-  <UpdateFile UncompressedSize="0" OS="Any" CompressedSize="0"/>
+  <UpdateFile CompressedSize="0" OS="Any" UncompressedSize="0"/>
   <Licenses>
    <License name="GNU General Public License v3" file="license.txt"/>
   </Licenses>
-  <SHA1>8efd4da8992b3d7c232f20c7fb7b30aa13d1f5a7</SHA1>
+  <SHA1>f1ea39f566afbe9c445d273fc484f85c8ea23106</SHA1>
  </PackageUpdate>
  <PackageUpdate>
   <Name>org.rxlaboratory.ramses.client.app</Name>
@@ -27,12 +27,12 @@
   <Required>true</Required>
   <SortingPriority>100</SortingPriority>
   <Script>installscript.js</Script>
-  <UpdateFile UncompressedSize="71545633" OS="Any" CompressedSize="19298285"/>
+  <UpdateFile CompressedSize="41527152" OS="Any" UncompressedSize="158970359"/>
   <DownloadableArchives>client.7z,content.7z</DownloadableArchives>
-  <SHA1>3269f2a4dfd03d4f6b6c79697e697b6f50f490c2</SHA1>
+  <SHA1>55b913383008bba4dddf686033c6f242b93f9c5e</SHA1>
  </PackageUpdate>
- <SHA1>4d2c03ea885cd2b6b19ce012bcc5f46f43628273</SHA1>
- <MetadataName>2024-04-29-2033_meta.7z</MetadataName>
+ <SHA1>904f4ec61c920dff97d1b5505b0fbd491307e4e3</SHA1>
+ <MetadataName>2024-04-29-2044_meta.7z</MetadataName>
 <RepositoryUpdate>
 <Repository action="add" url="../common" displayname="Ramses Common Components" />
 </RepositoryUpdate>
