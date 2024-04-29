@@ -2,8 +2,8 @@
 <Package>
     <DisplayName>Add-ons</DisplayName>
     <Description>Add-ons to integrate Ramses in your creative applications.</Description>
-    <Version>0.9</Version>
-    <ReleaseDate>2024-02-05</ReleaseDate>
+    <Version>0.10</Version>
+    <ReleaseDate>2024-04-29</ReleaseDate>
     <Default>false</Default>
     <Required>false</Required>
     <SortingPriority>20</SortingPriority>
