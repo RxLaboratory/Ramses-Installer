@@ -683,8 +683,8 @@ def build_common_packages():
     export_server()
     remove_sync_conflicts()
 
-build_all()
-#build_common_packages()
+#build_all()
+build_common_packages()
 #create_binaries()
 
 print("<< Finished! >>")
