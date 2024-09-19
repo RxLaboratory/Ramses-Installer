@@ -4,6 +4,9 @@
 *.sync-conflict-*
 # Foldex crap
 .foldex.ini
+# Python
+__pycache__
+*.pyc
 # bin tools
 tools/*
 # Package data
@@ -16,5 +19,3 @@ repository/**/org.rxlaboratory*
 *.7z*
 # Builds
 build/*
-
-

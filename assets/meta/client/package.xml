@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Ramses Application</DisplayName>
+    <Description>The Ramses application is the core of the Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
+    <Version inheritVersionFrom="org.rxlaboratory.ramses.client.app">0.0.0</Version>
+    <ReleaseDate>#date#</ReleaseDate>
+    <Default>true</Default>
+    <Required>true</Required>
+    <SortingPriority>100</SortingPriority>
+    <Licenses>
+        <License name="GNU General Public License v3" file="license.txt" />
+    </Licenses>
+</Package>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Application</DisplayName>
+    <Description>The Ramses application is the core of the Asset Management System. It's the main User Interface, and serves all data to the other components.</Description>
+    <Version>#version#</Version>
+    <ReleaseDate>#date#</ReleaseDate>
+    <Default>true</Default>
+    <Required>true</Required>
+    <SortingPriority>100</SortingPriority>
+    <Script>installscript.js</Script>
+</Package>
