@@ -2,8 +2,8 @@
 <Package>
     <DisplayName>Python API</DisplayName>
     <Description>Write your own add-ons in Python using the ramses module.</Description>
-    <Version>0.10.0</Version>
-    <ReleaseDate>2024-04-29</ReleaseDate>
+    <Version>#version#</Version>
+    <ReleaseDate>#date#</ReleaseDate>
     <Default>false</Default>
     <Required>false</Required>
     <Licenses>

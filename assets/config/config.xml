@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Installer>
-    <Name>Ramses for Windows</Name>
+    <Name>Ramses</Name>
     <Title>Ramses</Title>
-    <Version>0.8.x</Version>
+    <Version>#version#</Version>
     <Publisher>RxLaboratory</Publisher>
     <ProductUrl>https://rxlaboratory.org/tools/ramses/</ProductUrl>
-    <TargetDir>@ApplicationsDir@/RxLaboratory/Ramses</TargetDir>
-    <RunProgram>@TargetDir@/client/ramses</RunProgram>
-    <StartMenuDir>Ramses</StartMenuDir>
+    <TargetDir>#targetdir#</TargetDir>
+    #admintargetdir#
+    <RunProgram>#runprogram#</RunProgram>
+    #startmenu#
     <InstallerApplicationIcon>ramses_install</InstallerApplicationIcon>
     <InstallerWindowIcon>ramses_install.png</InstallerWindowIcon>
     <WizardShowPageList>true</WizardShowPageList>
@@ -16,7 +17,7 @@
     <WizardDefaultHeight>800</WizardDefaultHeight>
     <WizardDefaultWidth>960</WizardDefaultWidth>
     <ControlScript>controlscript.js</ControlScript>
-    <RemoveTargetDir>false</RemoveTargetDir>
+    <RemoveTargetDir>true</RemoveTargetDir>
     <Banner>ramses_banner.png</Banner>
     <ProductImages>
         <ProductImage>
@@ -24,16 +25,4 @@
             <Url>http://rxlaboratory.org</Url>
         </ProductImage>
     </ProductImages>
-    <RemoteRepositories>
-        <Repository>
-            <Url>https://repo.rxlab.io/ramses/win</Url>
-            <Enabled>1</Enabled>
-            <DisplayName>RxLaboratory - Ramses</DisplayName>
-        </Repository>
-        <Repository>
-            <Url>https://repo.rxlab.io/ifw/win</Url>
-            <Enabled>1</Enabled>
-            <DisplayName>RxLaboratory - Maintenance Tool</DisplayName>
-        </Repository>
-    </RemoteRepositories>
 </Installer>
