@@ -10,8 +10,6 @@
     <Script>installscript.js</Script>
     <UserInterfaces>
         <UserInterface>targetWidget.ui</UserInterface>
+        <UserInterface>license.ui</UserInterface>
     </UserInterfaces>
-    <Licenses>
-        <License name="GNU General Public License v3" file="license.txt" />
-    </Licenses>
 </Package>

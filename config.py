@@ -27,16 +27,23 @@ RAMSES_SERVER_REPO = os.path.join(RAMSES_PARENT_PATH, "Ramses-Server")
 
 BINARY_CREATOR = ''
 if SYSTEM == 'Windows':
-    f = 'C:/Qt/Tools/QtInstallerFramework/4.5/bin/binarycreator.exe'
+    f = 'C:/Qt/Tools/QtInstallerFramework/4.8/bin/binarycreator.exe'
     if os.path.isfile(f):
         BINARY_CREATOR = f
     f = 'C:/Qt/Tools/QtInstallerFramework/4.6/bin/binarycreator.exe'
     if os.path.isfile(f):
         BINARY_CREATOR = f
+    f = 'C:/Qt/Tools/QtInstallerFramework/4.5/bin/binarycreator.exe'
+    if os.path.isfile(f):
+        BINARY_CREATOR = f
+
 else:
-    f = os.path.expanduser('~/Qt/Tools/QtInstallerFramework/4.5/bin/binarycreator')
+    f = os.path.expanduser('~/Qt/Tools/QtInstallerFramework/4.8/bin/binarycreator')
     if os.path.isfile(f):
         BINARY_CREATOR = f
     f = os.path.expanduser('~/Qt/Tools/QtInstallerFramework/4.6/bin/binarycreator')
+    if os.path.isfile(f):
+        BINARY_CREATOR = f
+    f = os.path.expanduser('~/Qt/Tools/QtInstallerFramework/4.5/bin/binarycreator')
     if os.path.isfile(f):
         BINARY_CREATOR = f

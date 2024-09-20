@@ -90,6 +90,19 @@ def package_client():
         copy_meta('client.desktopShortcut',RAMSES_MAIN_VERSION)
         copy_meta('client.startMenuShortcut', RAMSES_MAIN_VERSION)
 
+    # Add the licenses folder
+    licenses_path = os.path.join(ASSETS_PATH, 'meta', 'client')
+    data_path = os.path.join(PACKAGES_PATH, RAMSES_PACKAGE_ID+".client", 'data', 'Licenses')
+    os.makedirs(data_path)
+    shutil.copy(
+        os.path.join(licenses_path, 'license.txt'),
+        data_path
+    )
+    shutil.copy(
+        os.path.join(licenses_path, 'license.md'),
+        data_path
+    )
+
 def package_client_app():
 
     # Build the client
@@ -186,16 +199,16 @@ def package_all_servers():
 def package_all():
     wipe(BUILD_PATH)
     print('Packaging Add-ons...')
-    #package_addons()
+    package_addons()
     print('Packaging Maya Add-on...')
-    #package_maya()
+    package_maya()
     print('Packaging Client...')
     package_client()
     package_client_app()
-    #package_dev()
-    #package_py()
-    #package_server()
-    #package_all_servers()
+    package_dev()
+    package_py()
+    package_server()
+    package_all_servers()
 
 def set_config():
     shutil.copytree(
@@ -274,7 +287,3 @@ if __name__ == '__main__':
     set_config()
     create_binaries()
     print('>>> Done! <<<')
-
-# TODO
-# gain admin rights only if needed (test if maintenance tool still exists after uninstall to try again)
-# check why license.txt fails in admin folders

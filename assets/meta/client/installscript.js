@@ -2,6 +2,7 @@ var isWin = systemInfo.kernelType == "winnt";
 var isMac = systemInfo.kernelType == "darwin";
 var isLinux = systemInfo.kernelType == "linux";
 var targetDirectoryPage = null;
+var licensePage = null;
 var maintenanceToolName = "";
 var finishWidget = null;
 var doRunMaintenanceTool = false;
@@ -24,6 +25,7 @@ function setupUi()
         // Setup our own target widget
         //component.loaded.connect(this, addTargetDirWidget);
         addTargetDirWidget();
+        addLicensePage();
         gui.pageById(QInstaller.ComponentSelection).entered.connect(this, runMaintenanceTool);
         gui.pageById(QInstaller.ReadyForInstallation).entered.connect(this, prepareInstallation);
         gui.pageById(QInstaller.LicenseCheck).entered.connect(this, showHideStartMenuPage);
@@ -53,6 +55,25 @@ function showHideStartMenuPage()
             return;
         }
     }
+}
+
+function addLicensePage()
+{
+    if (licensePage) return;
+
+    // Hide the license page to add our own
+    installer.setDefaultPageVisible(QInstaller.LicenseCheck, false);
+    installer.addWizardPage(component, "GPLPage", QInstaller.LicenseCheck);
+
+    licensePage = gui.pageWidgetByObjectName("DynamicGPLPage");
+    licensePage.windowTitle = "License Agreement";
+    licensePage.checkBox.clicked.connect(this, acceptLicense);
+    licensePage.complete = false;
+}
+
+function acceptLicense()
+{
+    licensePage.complete = licensePage.checkBox.checked;
 }
 
 function addTargetDirWidget()
@@ -130,19 +151,31 @@ function runMaintenanceTool()
 {
     if (!doRunMaintenanceTool) return;
 
-    installer.gainAdminRights();
-
     var dir = installer.value("TargetDir");
     if (installer.fileExists(dir) && installer.fileExists(dir + "/" + maintenanceToolName)) {
-        if (isMac)
-            installer.execute(dir + "/" + maintenanceToolName + "/Contents/MacOS/" + maintenanceToolName.replace(".app", ""), /*["--start-uninstaller"]*/ ["purge", "-c"]);
-        else
-            installer.execute(dir + "/" + maintenanceToolName, /*["--start-uninstaller"]*/ ["purge", "-c"]);
+        if (!uninstall()) {
+            // Try again as admin
+            installer.gainAdminRights();
+            uninstall()
+        }
     }
     else {
-        QMessageBox.warning("maintenanceToolNotFound", "Maintenance Tool", "The Maintenance Tool can't be found.");
+        //QMessageBox.warning("maintenanceToolNotFound", "Maintenance Tool", "The Maintenance Tool can't be found.");
     }
     //gui.rejectWithoutPrompt();
+}
+
+function uninstall()
+{
+    var dir = installer.value("TargetDir");
+
+    if (isMac)
+        installer.execute(dir + "/" + maintenanceToolName + "/Contents/MacOS/" + maintenanceToolName.replace(".app", ""), /*["--start-uninstaller"]*/ ["purge", "-c"]);
+    else
+        installer.execute(dir + "/" + maintenanceToolName, /*["--start-uninstaller"]*/ ["purge", "-c"]);
+    
+    var ok = !installer.fileExists(dir + "/" + maintenanceToolName);
+    return ok;
 }
 
 function prepareInstallation()

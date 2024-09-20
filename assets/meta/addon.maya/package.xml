@@ -6,8 +6,5 @@
     <ReleaseDate>#date#</ReleaseDate>
     <Default>false</Default>
     <Required>false</Required>
-    <Licenses>
-        <License name="GNU General Public License v3" file="license.txt" />
-    </Licenses>
     <Script>installscript.js</Script>
 </Package>

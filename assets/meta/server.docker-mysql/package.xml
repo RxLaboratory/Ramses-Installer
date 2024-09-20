@@ -7,7 +7,4 @@
     <Default>false</Default>
     <Required>false</Required>
     <SortingPriority>2</SortingPriority>
-    <Licenses>
-        <License name="GNU General Public License v3" file="license.txt" />
-    </Licenses>
 </Package>
