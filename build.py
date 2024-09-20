@@ -186,16 +186,16 @@ def package_all_servers():
 def package_all():
     wipe(BUILD_PATH)
     print('Packaging Add-ons...')
-    package_addons()
+    #package_addons()
     print('Packaging Maya Add-on...')
-    package_maya()
+    #package_maya()
     print('Packaging Client...')
     package_client()
     package_client_app()
-    package_dev()
-    package_py()
-    package_server()
-    package_all_servers()
+    #package_dev()
+    #package_py()
+    #package_server()
+    #package_all_servers()
 
 def set_config():
     shutil.copytree(
@@ -275,9 +275,6 @@ if __name__ == '__main__':
     create_binaries()
     print('>>> Done! <<<')
 
-
-
 # TODO
-# Install script remove previous installation
-# maintenancetool.exe purge -c
-# See https://stackoverflow.com/questions/46455360/workaround-for-qt-installer-framework-not-overwriting-existing-installation
+# gain admin rights only if needed (test if maintenance tool still exists after uninstall to try again)
+# check why license.txt fails in admin folders

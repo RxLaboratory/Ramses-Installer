@@ -7,6 +7,10 @@
     <Default>true</Default>
     <Required>true</Required>
     <SortingPriority>100</SortingPriority>
+    <Script>installscript.js</Script>
+    <UserInterfaces>
+        <UserInterface>targetWidget.ui</UserInterface>
+    </UserInterfaces>
     <Licenses>
         <License name="GNU General Public License v3" file="license.txt" />
     </Licenses>
