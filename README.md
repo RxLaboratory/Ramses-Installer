@@ -1,9 +1,9 @@
 # Ramses-Installer
  The installer for the Ramses application and add-ons
 
-## Use the build script (build.py)
+## Relocation notice!
 
-### Linux
+The canonical repository for **Ramses-Installer** is now [on
+Codeberg](https://codeberg.org/Ramses/Ramses-Installer).
 
-- Needs `linuxdeployqt`. The file should be `tools/linuxdeployqt-6-x86_64.AppImage`
-- Needs qmake 5.12. It should be in `~/Qt/5.12.5/gcc_64/bin/qmake`
+The repo on github will be left around as an archive, but will eventually be deleted. You should update your remotes to the _Codeberg_ repo as soon as possible.
